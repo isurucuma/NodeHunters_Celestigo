@@ -1,10 +1,14 @@
-import Image from "next/image";
+import AppName from "@/components/atoms/AppName/AppName";
 import styles from "./page.module.css";
+import Logo from "@/components/atoms/Logo/Logo";
 
-export default function Home() {
+export default function Splash() {
   return (
-    <main className={styles.main}>
-      home page
-    </main>
+    <div className={styles.splash}>
+      <div>
+        <Logo />
+        <AppName />
+      </div>
+    </div>
   );
 }
