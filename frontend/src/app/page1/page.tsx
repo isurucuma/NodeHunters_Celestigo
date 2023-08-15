@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import CustomButton from '@/components/atoms/Button/Button';
+import Button  from '@/components/atoms/Button/Button';
 
 const Page1 = () => {
   const handleClick = () => {
@@ -10,7 +10,7 @@ const Page1 = () => {
   return (
     <div>
       <h1>Page 1</h1>
-      <CustomButton onClick={handleClick}>Click me</CustomButton>
+      <Button  onClick={handleClick}>Click me</Button >
     </div>
   );
 };

@@ -1,6 +1,7 @@
+"use client"
 import React from 'react';
 import Button from '@mui/material/Button';
-import  buttonStyles from './ButtonStyles';
+import buttonStyles from './ButtonStyles';
 
 interface ButtonProps {
   children: React.ReactNode;

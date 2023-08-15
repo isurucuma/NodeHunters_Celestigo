@@ -1,6 +1,6 @@
 const buttonStyles = {
   root: {
-    background: 'blue',
+    background: 'red',
     color: 'white',
     padding: '10px 20px',
     border: 'none',
