@@ -3,12 +3,15 @@ import React from "react";
 import primaryButtonStyles from "./PrimaryButtonStyles";
 import Button from "@mui/material/Button";
 
-const PrimaryButton = ({ name }:{
-  name: string
-}) => {
+interface PrimaryButtonProps {
+  children: React.ReactNode;
+  type?: "submit" | "button";
+}
+
+const PrimaryButton = ({ children, type = "button" }: PrimaryButtonProps) => {
   return (
-    <Button variant="contained" sx={primaryButtonStyles.root}>
-      {name}
+    <Button type={type} variant="contained" sx={primaryButtonStyles.root}>
+      {children}
     </Button>
   );
 };

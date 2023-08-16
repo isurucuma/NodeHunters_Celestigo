@@ -22,7 +22,11 @@ const Welcome = () => {
         <TextBlock content="Get ready to launch into a new era of exploration and adventure. Your interstellar journey begins now. Let's explore the cosmos together!" />
       </Box>
       <Box>
-        <PrimaryButton name="Let's go" />
+        <PrimaryButton >
+        Let's go
+        </PrimaryButton>
+
+
       </Box>
     </Box>
   );
