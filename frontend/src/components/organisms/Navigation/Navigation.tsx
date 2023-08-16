@@ -6,6 +6,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 
+
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
