@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import { Button } from "@mui/material";
 
+import FormHelperText from '@mui/material/FormHelperText'
 import { useForm, Controller } from "react-hook-form";
 
 
@@ -73,9 +74,26 @@ const Signup = () => {
                     onChange={onChange}
                     placeholder="Enter your name"
                     error={Boolean(errors.name)}
+                    fullWidth
+                    sx={{
+                      bgcolor: 'white',
+                      borderRadius: '20px',
+                      background: '#FFF',
+                      boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                      color: 'black'
+                    }}
+                    inputProps={{
+                      sx:{
+                        color: 'black',
+                        borderRadius: 5
+                      }
+                    }}
                   />
                 )}
               />
+              {errors.name && (
+                      <FormHelperText sx={{ color: 'error.main' }}>{errors.name.message}</FormHelperText>
+                    )}
             </FormControl>
           </Box>
 
@@ -89,12 +107,29 @@ const Signup = () => {
                   <TextField
                     value={value}
                     label="Email"
+                    variant="standard"
                     onChange={onChange}
                     placeholder="Enter your email"
                     error={Boolean(errors.email)}
+                    fullWidth
+                    sx={{
+                      bgcolor: 'white',
+                      borderRadius: '20px',
+                      background: '#FFF',
+                      boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                      color: 'black'
+                    }}
+                    inputProps={{
+                      style: {
+                        color: 'black'
+                      }
+                    }}
                   />
                 )}
               />
+              {errors.email && (
+                      <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>
+                    )}
             </FormControl>
           </Box>
 
@@ -108,12 +143,30 @@ const Signup = () => {
                   <TextField
                     value={value}
                     label="Password"
+                    variant="filled"
+                    type="password"
                     onChange={onChange}
                     placeholder="Enter your password"
                     error={Boolean(errors.password)}
+                    fullWidth
+                    sx={{
+                      bgcolor: 'white',
+                      borderRadius: '20px',
+                      background: '#FFF',
+                      boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                      color: 'black'
+                    }}
+                    inputProps={{
+                      style: {
+                        color: 'black'
+                      }
+                    }}
                   />
                 )}
               />
+              {errors.password && (
+                      <FormHelperText sx={{ color: 'error.main' }}>{errors.password.message}</FormHelperText>
+                    )}
             </FormControl>
           </Box>
 
@@ -122,12 +175,6 @@ const Signup = () => {
               Sign up
             </PrimaryButton>
           </Box>
-
-          {/* <Box sx={{ mb: 2 }}>
-            <Button variant="contained" type="submit">
-              Sign up
-            </Button>
-          </Box> */}
 
         </form>
 
