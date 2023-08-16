@@ -23,7 +23,7 @@ const Welcome = () => {
       </Box>
       <Box>
         <PrimaryButton >
-        Let's go
+        Let&apos;s go
         </PrimaryButton>
 
 
