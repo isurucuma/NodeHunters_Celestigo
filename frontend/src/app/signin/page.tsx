@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import TextBlock from "@/components/atoms/TextBlock/TextBlock";
 import { FormInput, FormButton } from "@/components/molecules/Form/Form";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "@/validations/signIn/SignInValidation";
 import Link from "@mui/material/Link";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +30,7 @@ const Signin = () => {
     formState: { errors },
   } = useForm<SignInData>({
     defaultValues: defaultSignInData,
+    resolver: yupResolver(schema),
   });
 
   const onSubmit = (data: SignInData) => {
