@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import notificationMessageStyle from "./NotificationMessage";
+import notificationMessageStyle from "./NotificationMessageStyles";
 import Typography from "@mui/material/Typography";
 
 const NotificationMessage = ({ message }: { message: string }) => {

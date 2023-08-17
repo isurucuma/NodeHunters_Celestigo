@@ -2,7 +2,7 @@
 
 import React from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
-import Notification from "@/components/molecules/Notification Component/Notification";
+import Notification from "@/components/molecules/Notification/Notification";
 import { Box } from "@mui/material";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 
@@ -26,6 +26,7 @@ const Notifications: React.FC = () => {
       >
         <PageTitle title="Notifications" />
       </Box>
+      <Notification time="17.05" />
       <Notification time="17.05" />
     </AppTemplate>
   );

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Box } from "@mui/system";
-import successIconStyles from "./SuccessIcon";
+import successIconStyles from "./SuccessIconStyles";
 
 const SuccessIcon = () => {
   return (

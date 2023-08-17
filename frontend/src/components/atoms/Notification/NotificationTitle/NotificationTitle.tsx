@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import notificationTitleStyle from "./NotificationTitle";
+import notificationTitleStyle from "./NotificationTitleStyles";
 import Typography from "@mui/material/Typography";
 
 const NotificationTitle = ({ title }: { title: string }) => {
