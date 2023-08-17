@@ -5,8 +5,12 @@ import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
 import TextBlock from "@/components/atoms/TextBlock/TextBlock";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
+import Link from "@mui/material/Link";
+import { useRouter } from "next/navigation";
 
 const PasswordReset = () => {
+  const router: any = useRouter();
+  
   return (
     <Box>
       <Box
@@ -24,13 +28,14 @@ const PasswordReset = () => {
         </Box>
 
         <Box sx={{ mb: 10 }}>
-          <PrimaryButton >
-            Send reset link
-          </PrimaryButton>
+          <PrimaryButton>Send reset link</PrimaryButton>
         </Box>
 
         <Box sx={{ position: "absolute", bottom: 0, width: "75%", mb: 2 }}>
-          <TextBlock content="Don’t have an account? Sign up  " />
+          <TextBlock inline content="Don’t have an account? " />
+          <Link onClick={() => router.push("/signup")}>
+            <TextBlock link inline content="Sign up" />
+          </Link>
         </Box>
       </Box>
     </Box>
