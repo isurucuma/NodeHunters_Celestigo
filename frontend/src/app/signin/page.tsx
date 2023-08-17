@@ -79,7 +79,12 @@ const Signin = () => {
             />
           </Box>
 
-          <Box sx={{ mb: 2 }}>
+          {/* forget password */}
+          <Link onClick={() => router.push("/password-reset")}>
+            <TextBlock link inline content="Forgot password?" />
+          </Link>
+
+          <Box sx={{ mb: 4 }}>
             <FormButton>Sign in</FormButton>
           </Box>
         </form>

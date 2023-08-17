@@ -10,7 +10,7 @@ const textBlockStyles = {
     lineHeight: "normal",
   },
   link:{
-    fontWeight: 600,
+    fontWeight: 500,
     cursor: "pointer",
   },
   inline: {
