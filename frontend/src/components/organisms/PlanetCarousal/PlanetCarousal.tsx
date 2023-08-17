@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
 import PlanetContent from "@/components/molecules/PlanetContent/PlanetContent";
 import CarousalCount from "@/components/atoms/CarousalCount/CarousalCount";
 import CarousalArrow from "@/components/atoms/CarousalArrow/CarousalArrow";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const locations = [
   {
