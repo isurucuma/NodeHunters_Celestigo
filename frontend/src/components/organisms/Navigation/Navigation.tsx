@@ -6,7 +6,6 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 
-
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
@@ -14,13 +13,13 @@ export default function Navigation() {
   return (
     <BottomNavigation
       sx={{
-        position: "absolute",
+        position: "fixed",
         bottom: 0,
         left: 0,
         width: "100%",
         borderTopLeftRadius: "16px",
         borderTopRightRadius: "16px",
-        background: "rgba(255, 255, 255, 0.9)",
+        background: "rgba(255, 255, 255)",
       }}
     >
       <BottomNavigationAction
