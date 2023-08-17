@@ -24,9 +24,7 @@ const PasswordReset = () => {
         </Box>
 
         <Box sx={{ mb: 10 }}>
-          <PrimaryButton >
-            Send reset link
-          </PrimaryButton>
+          <PrimaryButton>Send reset link</PrimaryButton>
         </Box>
 
         <Box sx={{ position: "absolute", bottom: 0, width: "75%", mb: 2 }}>

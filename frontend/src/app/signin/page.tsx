@@ -21,9 +21,7 @@ const Signin = () => {
         </Box>
 
         <Box sx={{ mb: 6 }}>
-          <PrimaryButton  >
-            Sign in
-          </PrimaryButton>
+          <PrimaryButton>Sign in</PrimaryButton>
         </Box>
         <Box sx={{ mb: 2 }}>
           <TextBlock content="Or sign in with" />

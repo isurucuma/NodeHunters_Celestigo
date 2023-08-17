@@ -1,6 +1,6 @@
 .base {
-  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
   background: url("../../public/assets/images/main-bg.png") center / cover,
     linear-gradient(180deg, #001f3f 0%, #800080 79.15%);
+  min-height: 100vh;
   position: relative;
 }

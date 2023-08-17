@@ -11,7 +11,6 @@ import { Button } from "@mui/material";
 
 import { useForm, Controller } from "react-hook-form";
 
-
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/validations/signUp/SignUpValidation";
 import { FormControl } from "@mui/material";
@@ -118,9 +117,7 @@ const Signup = () => {
           </Box>
 
           <Box sx={{ mb: 2 }}>
-            <PrimaryButton type = "submit" >
-              Sign up
-            </PrimaryButton>
+            <PrimaryButton type="submit">Sign up</PrimaryButton>
           </Box>
 
           {/* <Box sx={{ mb: 2 }}>
@@ -128,7 +125,6 @@ const Signup = () => {
               Sign up
             </Button>
           </Box> */}
-
         </form>
 
         <Box sx={{ mb: 2 }}>
