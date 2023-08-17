@@ -1,6 +1,6 @@
 const notificationTitleStyle = {
   root: {
-    width: "100px",
+    width: "300px",
     height: "16px",
     textAlign: "left",
     alignItems: "center",
