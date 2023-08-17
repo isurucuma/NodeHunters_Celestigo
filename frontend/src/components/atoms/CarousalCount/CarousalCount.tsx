@@ -3,7 +3,10 @@ import React from "react";
 import carousalCountStyles from "./CarousalCountStyles";
 import Typography from "@mui/material/Typography";
 
-const CarousalCount = ({ total, step }) => {
+const CarousalCount = ({ total, step }:{
+  total: number;
+  step: number;
+}) => {
   return (
     <Typography
       variant="body1"
