@@ -9,6 +9,13 @@ const textBlockStyles = {
     fontWeight: 300,
     lineHeight: "normal",
   },
+  link:{
+    fontWeight: 500,
+    cursor: "pointer",
+  },
+  inline: {
+    display: "inline",
+  },
 };
 
 export default textBlockStyles;
