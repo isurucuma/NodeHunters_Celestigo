@@ -36,7 +36,7 @@ function SwipeableTextMobileStepper() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
 
-  const handleStepChange = (step) => {
+  const handleStepChange = (step:number) => {
     setActiveStep(step);
   };
 
