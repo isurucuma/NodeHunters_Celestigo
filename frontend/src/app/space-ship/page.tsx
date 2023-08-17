@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import TextBlock from "@/components/atoms/TextBlock/TextBlock";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import CommonCard from "@/components/molecules/CommonCard/CommonCard";
-import PlanetCarousal from "@/components/organisms/PlanetCarousal/PlanetCarousal";
+import ShipCarousal from "@/components/organisms/ShipCarousal/ShipCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 
 const Planet = () => {
@@ -21,10 +21,11 @@ const Planet = () => {
         <Box>
           <BackButton />
         </Box>
-        <Box sx={{ mb: 2, mt: 2 }}>
-          <PageTitle title="VENUS" />
+        <Box sx={{ mb: 2, mt: 8 }}>
+          <PageTitle title="Choose Your Interstellar Ride" />
         </Box>
-        <PlanetCarousal />
+        <ShipCarousal />
+        <PrimaryButton>Continue</PrimaryButton>
       </Box>
     </AppTemplate>
   );
