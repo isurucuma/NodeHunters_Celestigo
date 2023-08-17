@@ -3,7 +3,9 @@ import React from "react";
 import carousalArrowStyles from "./CarousalArrowStyles";
 import Box from "@mui/material/Box";
 
-const CarousalArrow = ({ side }) => {
+const CarousalArrow = ({ side }:{
+  side: string;
+}) => {
   return (
     <Box
       component="img"

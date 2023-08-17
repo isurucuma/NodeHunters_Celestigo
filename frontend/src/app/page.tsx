@@ -6,7 +6,7 @@ import Logo from "@/components/atoms/Logo/Logo";
 import { useRouter } from "next/navigation";
 
 export default function Splash() {
-  const router = useRouter();
+  const router: any = useRouter();
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Splash() {
     if (redirect) {
       router.push("/welcome");
     }
-  }, [redirect]);
+  }, [redirect, router]);
 
   const handleClick = () => {
     setRedirect(true);
