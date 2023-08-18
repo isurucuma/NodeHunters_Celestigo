@@ -1,11 +1,11 @@
-const backButtonStyles = {
+const infoIconStyles = {
   root: {
     cursor: "pointer",
     position: "absolute",
     top: "25px",
-    left: "50px",
+    right: "50px",
     zIndex: 1,
   },
 };
 
-export default backButtonStyles;
+export default infoIconStyles;
