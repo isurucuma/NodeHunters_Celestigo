@@ -10,11 +10,15 @@ export default function SingleDetails({
   to,
   ship,
   date,
+  price,
+  discount
 }: {
   from: string;
   to: string;
   ship: string;
   date: string;
+  price: string;
+  discount: string;
 }) {
   return (
     <Box
