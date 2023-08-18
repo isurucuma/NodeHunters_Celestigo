@@ -8,7 +8,7 @@ import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import CommonCard from "@/components/molecules/CommonCard/CommonCard";
 import ShipCarousal from "@/components/organisms/ShipCarousal/ShipCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
-import BankCard from "@/components/molecules/BankCard/BankCard";
+import HalfBankCard from "@/components/molecules/HalfBankCard/HalfBankCard";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import CartAmount from "@/components/organisms/CartAmount/CartAmount";
@@ -101,7 +101,7 @@ const MakePayment = () => {
           </Grid>
         </Grid>
 
-        <BankCard digits="5132" date="05/26" type="visa" />
+        <HalfBankCard digits="5132" date="05/26" type="visa" />
         <Grid
           container
           spacing={2}
@@ -123,8 +123,8 @@ const MakePayment = () => {
             </Typography>
           </Grid>
         </Grid>
-        <BankCard digits="5132" date="05/26" type="visa" />
-        <BankCard digits="5132" date="05/26" type="master" />
+        <HalfBankCard digits="5132" date="05/26" type="visa" />
+        <HalfBankCard digits="5132" date="05/26" type="master" />
         <CartAmount classPrice={300000} seats={2} />
         <PrimaryButton>Pay</PrimaryButton>
       </Box>
