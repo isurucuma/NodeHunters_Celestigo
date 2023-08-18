@@ -6,7 +6,7 @@ import CommonCard from "@/components/molecules/CommonCard/CommonCard";
 import CarousalCount from "@/components/atoms/CarousalCount/CarousalCount";
 import CarousalArrow from "@/components/atoms/CarousalArrow/CarousalArrow";
 
-const locations = [
+const ships = [
   {
     label: "San Francisco – Oakland Bay Bridge, United States",
     imgPath:
@@ -45,35 +45,15 @@ function SwipeableTextMobileStepper() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {locations.map((step, index) => (
+        {ships.map((step, index) => (
           <Box key={step.label} sx={{ position: "relative" }}>
-            <Box
-              sx={{
-                position: "absolute",
-                top: "20px",
-                right: "20px",
-                zIndex: 1,
-                borderRadius: "15px",
-                background: "rgba(0, 0, 0, 0.53)",
-                padding: "12px 15px",
-              }}
-            >
-              {" "}
-              <CarousalCount total={locations.length} step={index + 1} />
-            </Box>
-            <Box sx={{ position: "absolute", top: "200px", left: "20px" }}>
-              <CarousalArrow side="left" />
-            </Box>
-            <Box sx={{ position: "absolute", top: "200px", right: "20px" }}>
-              <CarousalArrow side="right" />
-            </Box>
             <Box
               component="img"
               sx={{
                 display: "block",
                 overflow: "hidden",
                 width: "100%",
-                height: "400px",
+                height: "450px",
                 borderRadius: "45px",
                 margin: "0 auto",
               }}
@@ -100,14 +80,6 @@ function SwipeableTextMobileStepper() {
                   content="Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary."
                 />
               </Box>
-              <CommonCard
-                title="Climate"
-                content="Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead."
-              />
-              <CommonCard
-                title="Culture"
-                content="Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet."
-              />
             </Box>
           </Box>
         ))}

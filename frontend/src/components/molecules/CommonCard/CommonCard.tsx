@@ -4,10 +4,7 @@ import TextBlock from "@/components/atoms/TextBlock/TextBlock";
 import Box from "@mui/material/Box";
 import React from "react";
 
-const PlanetContent = ({ title, content }:{
-  title: string;
-  content: string;
-}) => {
+const CommonCard = ({ title, content }: { title: string; content: string }) => {
   return (
     <Box sx={{ px: "30px", mb: "20px" }}>
       <SectionTitle title={title} />
@@ -16,4 +13,4 @@ const PlanetContent = ({ title, content }:{
   );
 };
 
-export default PlanetContent;
+export default CommonCard;
