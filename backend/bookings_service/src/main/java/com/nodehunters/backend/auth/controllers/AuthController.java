@@ -2,7 +2,7 @@ package com.nodehunters.backend.auth.controllers;
 
 import com.nodehunters.backend.auth.dto.LoginResponseDTO;
 import com.nodehunters.backend.auth.dto.RegistrationDTO;
-import com.nodehunters.backend.auth.models.ApplicationUser;
+import com.nodehunters.backend.auth.models.AuthUser;
 import com.nodehunters.backend.auth.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class AuthController {
     private AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ApplicationUser registerUser(@RequestBody RegistrationDTO body){
+    public AuthUser registerUser(@RequestBody RegistrationDTO body){
         return authenticationService.registerUser(body.getUsername(), body.getPassword());
     }
 

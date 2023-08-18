@@ -1,7 +1,7 @@
 package com.nodehunters.backend.auth.services;
 
 import com.nodehunters.backend.auth.dto.LoginResponseDTO;
-import com.nodehunters.backend.auth.models.ApplicationUser;
+import com.nodehunters.backend.auth.models.AuthUser;
 import com.nodehunters.backend.auth.models.Role;
 import com.nodehunters.backend.auth.repository.RoleRepository;
 import com.nodehunters.backend.auth.repository.UserRepository;
@@ -35,12 +35,12 @@ public class AuthenticationService {
     @Autowired
     private TokenService tokenService;
 
-    public ApplicationUser registerUser(String username, String password){
+    public AuthUser registerUser(String username, String password){
         String encodedPassword = passwordEncoder.encode(password);
         Role userRole = roleRepository.findByAuthority("USER").get();
         Set<Role> authorities = new HashSet<>();
         authorities.add(userRole);
-        return userRepository.save(new ApplicationUser(0, username, encodedPassword, authorities));
+        return userRepository.save(new AuthUser(0, username, encodedPassword, authorities));
     }
 
     // user tries to log in by entering the username and the password

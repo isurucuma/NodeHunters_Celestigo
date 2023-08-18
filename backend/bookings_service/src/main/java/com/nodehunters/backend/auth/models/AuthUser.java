@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class ApplicationUser implements UserDetails {
+public class AuthUser implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
@@ -46,14 +46,14 @@ public class ApplicationUser implements UserDetails {
         this.username = username;
     }
 
-    public ApplicationUser(Integer userId, String username, String password, Set<Role> authorities) {
+    public AuthUser(Integer userId, String username, String password, Set<Role> authorities) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.authorities = authorities;
     }
 
-    public ApplicationUser(){
+    public AuthUser(){
         super();
         this.authorities = new HashSet<>();
     }
