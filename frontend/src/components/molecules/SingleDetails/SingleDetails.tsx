@@ -2,14 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
-
-import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
-
-import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
 import { Typography } from "@mui/material";
+import PriceToggleButton from "@/components/organisms/ToggleButton/ToggleButton";
 
-export default function TourDetails({
+export default function SingleDetails({
   from,
   to,
   ship,
@@ -24,20 +20,18 @@ export default function TourDetails({
     <Box
       sx={{
         position: "absolute",
-        bottom: "50px",
+        top: "300px",
         left: "0",
         right: "0",
         padding: "10px",
         margin: "0 20px",
-        borderRadius: "17px",
-        background: "rgba(255, 255, 255, 0.92)",
       }}
     >
       <Grid container spacing={1}>
         <Grid item xs={2} sx={{ marginTop: "10px" }}>
           <Box
             component="img"
-            src="/assets/icons/location.png"
+            src="/assets/icons/location-black.png"
             sx={{ width: "22px", height: "auto" }}
           />
         </Grid>
@@ -45,7 +39,7 @@ export default function TourDetails({
           <Typography
             variant="body1"
             sx={{
-              color: "#000",
+              color: "#fff",
               fontFamily: "Montserrat",
               fontSize: "23px",
               fontStyle: "normal",
@@ -58,7 +52,7 @@ export default function TourDetails({
           <Typography
             variant="body1"
             sx={{
-              color: "#334C65",
+              color: "#fff",
               fontFamily: "Exo",
               fontSize: "20px",
               fontStyle: "normal",
@@ -70,26 +64,12 @@ export default function TourDetails({
             • P1
           </Typography>
         </Grid>
-        <Grid item xs={4}>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#334C65",
-              fontFamily: "Exo",
-              fontSize: "20px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "42px",
-            }}
-          >
-            {date}
-          </Typography>
-        </Grid>
+        <Grid item xs={4}></Grid>
         <Grid
           item
           xs={12}
           sx={{
-            borderLeft: "2px dotted black",
+            borderLeft: "2px dotted white",
             margin: "0",
             padding: "0",
             marginLeft: "18px",
@@ -101,7 +81,7 @@ export default function TourDetails({
         <Grid item xs={2} sx={{ marginTop: "10px" }}>
           <Box
             component="img"
-            src="/assets/icons/location.png"
+            src="/assets/icons/location-black.png"
             sx={{ width: "22px", height: "auto" }}
           />
         </Grid>
@@ -109,7 +89,7 @@ export default function TourDetails({
           <Typography
             variant="body1"
             sx={{
-              color: "#000",
+              color: "#fff",
               fontFamily: "Montserrat",
               fontSize: "23px",
               fontStyle: "normal",
@@ -122,7 +102,7 @@ export default function TourDetails({
           <Typography
             variant="body1"
             sx={{
-              color: "#334C65",
+              color: "#fff",
               fontFamily: "Exo",
               fontSize: "20px",
               fontStyle: "normal",
@@ -138,7 +118,7 @@ export default function TourDetails({
         <Grid item xs={2} sx={{ marginTop: "10px" }}>
           <Box
             component="img"
-            src="/assets/icons/rocket.png"
+            src="/assets/icons/rocket-white.png"
             sx={{ width: "22px", height: "auto", marginLeft: "5px" }}
           />
         </Grid>
@@ -146,7 +126,7 @@ export default function TourDetails({
           <Typography
             variant="body1"
             sx={{
-              color: "#334C65",
+              color: "#fff",
               fontFamily: "Exo",
               fontSize: "20px",
               fontStyle: "normal",
@@ -158,6 +138,81 @@ export default function TourDetails({
           </Typography>
         </Grid>
       </Grid>
+      <Box>
+        {" "}
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#fff",
+            fontFamily: "Exo",
+            fontSize: "20px",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "42px",
+          }}
+        >
+          Date: {date} <br />
+          Time: 20:15 <br />
+          Available Seat Count: 120 <br />
+          Total Price
+        </Typography>
+        <PriceToggleButton />
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50px",
+          right: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          component="img"
+          sx={{ marginBottom: "5px" }}
+          src="/assets/icons/people.png"
+        />
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#FFF",
+            textAlign: "center",
+            textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            fontFamily: "Montserrat",
+            fontSize: "18px",
+            fontStyle: "normal",
+            fontWeight: 700,
+            lineHeight: "15px",
+          }}
+        >
+          Seats
+        </Typography>
+        <Box
+          component="img"
+          sx={{ margin: "20px 0" }}
+          src="/assets/icons/plus.png"
+        />
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#FFF",
+            textAlign: "center",
+            fontFamily: "Montserrat",
+            fontSize: "28px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "normal",
+          }}
+        >
+          10
+        </Typography>
+        <Box
+          component="img"
+          sx={{ margin: "20px 0" }}
+          src="/assets/icons/minus.png"
+        />
+      </Box>
     </Box>
   );
 }
