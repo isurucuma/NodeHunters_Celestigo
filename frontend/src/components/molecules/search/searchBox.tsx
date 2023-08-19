@@ -1,20 +1,24 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
-
-import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
-
-import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
+import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import Container from "@mui/material/Container";
+import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
+import { Calender } from "@/components/organisms/Calender/Calender";
 
 export default function SearchBox() {
-  function handleClick(): void {
-    throw new Error("Function not implemented.");
-  }
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null); // Close the popup
+  };
+
+  const open = Boolean(anchorEl);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -82,8 +86,9 @@ export default function SearchBox() {
         </Grid>
       </Grid>
       <Container sx={{ marginTop: "20px" }}>
-        <PrimaryButton onClick={handleClick}>Select Dates</PrimaryButton>
+        <PrimaryButton onClick={() => handleClick}>Select Dates</PrimaryButton>
       </Container>
+      <Calender open={open} anchorEl={anchorEl} onClose={handleClose} />
     </Box>
   );
 }

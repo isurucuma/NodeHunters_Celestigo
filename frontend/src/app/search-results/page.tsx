@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import TourCard from "@/components/molecules/TourCard/TourCard";
+import SearchBox from "@/components/molecules/search/searchBox";
+import SearchFilter from "@/components/molecules/SearchFilter/SearchFilter";
 
 const SearchResults = () => {
   return (
@@ -22,6 +24,10 @@ const SearchResults = () => {
         <Box sx={{ mb: 2, mt: 8, marginBottom: "20px" }}>
           <PageTitle title="Search Results" />
         </Box>
+        <Box>
+          <SearchFilter />
+        </Box>
+
         <Box>
           <TourCard
             from="Earth"

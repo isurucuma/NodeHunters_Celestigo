@@ -47,7 +47,7 @@ export default function TourDetails({
             sx={{
               color: "#000",
               fontFamily: "Montserrat",
-              fontSize: "23px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 500,
               lineHeight: "42px",
@@ -60,7 +60,7 @@ export default function TourDetails({
             sx={{
               color: "#334C65",
               fontFamily: "Exo",
-              fontSize: "20px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "42px",
@@ -76,7 +76,7 @@ export default function TourDetails({
             sx={{
               color: "#334C65",
               fontFamily: "Exo",
-              fontSize: "20px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "42px",
@@ -111,7 +111,7 @@ export default function TourDetails({
             sx={{
               color: "#000",
               fontFamily: "Montserrat",
-              fontSize: "23px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 500,
               lineHeight: "42px",
@@ -124,7 +124,7 @@ export default function TourDetails({
             sx={{
               color: "#334C65",
               fontFamily: "Exo",
-              fontSize: "20px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "42px",
@@ -148,7 +148,7 @@ export default function TourDetails({
             sx={{
               color: "#334C65",
               fontFamily: "Exo",
-              fontSize: "20px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "42px",

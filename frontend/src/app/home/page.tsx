@@ -4,6 +4,7 @@ import AppTemplate from "@/components/templates/AppTemplate";
 import SearchBox from "@/components/molecules/search/searchBox";
 import ProfileGreet from "@/components/organisms/ProfileGreet/ProfileGreet";
 import HomeUpcomingTours from "@/components/organisms/HomeUpcomingTours/HomeUpComingTours";
+import Typography from "@mui/material/Typography";
 
 const Home = () => {
   return (
