@@ -76,7 +76,6 @@ function HomeUpComingTours() {
           ship="Cruiser Spaceship"
           date="Aug 21"
         />
-        B
       </Box>
     </Box>
   );

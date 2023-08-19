@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import TourCard from "@/components/molecules/TourCard/TourCard";
+import SearchBox from "@/components/molecules/search/searchBox";
 
 const SearchResults = () => {
   return (
@@ -21,6 +22,9 @@ const SearchResults = () => {
         </Box>
         <Box sx={{ mb: 2, mt: 8, marginBottom: "20px" }}>
           <PageTitle title="Search Results" />
+        </Box>
+        <Box>
+          <SearchBox />
         </Box>
         <Box>
           <TourCard
