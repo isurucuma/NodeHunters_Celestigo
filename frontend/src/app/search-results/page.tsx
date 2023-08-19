@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
@@ -9,14 +9,36 @@ import TourCard from "@/components/molecules/TourCard/TourCard";
 import SearchBox from "@/components/molecules/search/searchBox";
 import SearchFilter from "@/components/molecules/SearchFilter/SearchFilter";
 import { useRouter } from "next/navigation";
+import { MiniTourCard } from "@/types/tourCard";
+import { searchTour } from "@/services/tours/toursService";
+import { TourClass } from "@/types/enum";
+
+
 
 const SearchResults = () => {
   const router: any = useRouter();
+  const [tours, setTours] = useState<MiniTourCard[]>([]);
 
   const handleBackButtonClick = () => {
     router.back();
   };
   
+  useEffect(() => {
+    // Fetch tour data here
+    const fetchTours = async () => {
+      const data = await searchTour({
+        from: "Earth",
+        to: "Venus",
+        dates: [],
+        priceRange: [0, 100000000],
+        class: TourClass.first,
+      });
+      setTours(data);
+      console.log(data);
+    };
+    fetchTours();
+  }, []);
+
   return (
     <AppTemplate>
       <Box
@@ -34,33 +56,21 @@ const SearchResults = () => {
         <Box>
           <SearchFilter />
         </Box>
-
         <Box>
-          <TourCard
-            from="Earth"
-            to="Venus"
-            ship="Cruiser Spaceship"
-            date="Aug 21"
-            price="300K"
-            discount="-20"
-          />
-          <TourCard
-            from="Earth"
-            to="Venus"
-            ship="Cruiser Spaceship"
-            date="Aug 21"
-            price="300K"
-            discount="-20"
-          />
-          <TourCard
-            from="Earth"
-            to="Venus"
-            ship="Cruiser Spaceship"
-            date="Aug 21"
-            price="300K"
-            discount="-20"
-          />
+          {tours.map((tour) => (
+            <TourCard
+              key={tour.id}
+              id = {tour.id}
+              from={tour.from}
+              to={tour.to}
+              ship={tour.ship}
+              date={tour.date}
+              price={tour.price}
+              discount={tour.discount}
+            />
+          ))}
         </Box>
+
       </Box>
     </AppTemplate>
   );

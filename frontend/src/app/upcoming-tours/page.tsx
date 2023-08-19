@@ -30,6 +30,8 @@ const UpcomingTours = () => {
         </Box>
         <Box>
           <TourCard
+            key="1"
+            id="1"
             from="Earth"
             to="Venus"
             ship="Cruiser Spaceship"
@@ -38,6 +40,8 @@ const UpcomingTours = () => {
             discount="-20"
           />
           <TourCard
+            key="2"
+            id="2"
             from="Earth"
             to="Venus"
             ship="Cruiser Spaceship"
@@ -46,6 +50,8 @@ const UpcomingTours = () => {
             discount="-20"
           />
           <TourCard
+            key="3"
+            id="3"
             from="Earth"
             to="Venus"
             ship="Cruiser Spaceship"

@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import PriceToggleButton from "@/components/organisms/ToggleButton/ToggleButton";
 
 export default function SingleDetails({
+  key,
   from,
   to,
   ship,
@@ -13,6 +14,7 @@ export default function SingleDetails({
   price,
   discount
 }: {
+  key: string;
   from: string;
   to: string;
   ship: string;

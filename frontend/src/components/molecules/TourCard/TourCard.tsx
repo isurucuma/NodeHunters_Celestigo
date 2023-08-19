@@ -2,8 +2,13 @@ import Box from "@mui/material/Box";
 import React from "react";
 import TourDetails from "../TourDetails/TourDetails";
 import Typography from "@mui/material/Typography";
+import { useRouter } from "next/navigation";
+
+
 
 const TourCard = ({
+  key,
+  id,
   from,
   to,
   ship,
@@ -11,6 +16,8 @@ const TourCard = ({
   price,
   discount,
 }: {
+  key:string;
+  id:string;
   from: string;
   to: string;
   ship: string;
@@ -18,8 +25,14 @@ const TourCard = ({
   price: string;
   discount: string;
 }) => {
+  const router: any = useRouter();
+
+  const handleClick = () => {
+    router.push("/single-detail-view?id=" + id);
+  };
+
   return (
-    <Box sx={{ px: "30px", mb: "20px" }}>
+    <Box sx={{ px: "30px", mb: "20px" }} onClick={handleClick}>
       <Box sx={{ position: "relative" }}>
         <Typography
           variant="h1"
