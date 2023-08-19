@@ -14,7 +14,7 @@ public class DestinationsController {
         Destination ds = new Destination();
         ds.setDescription("this is setination test_01");
         ds.setName("ds_test_01");
-        ds.setRegion("Mars");
+        ds.setPlanet("Mars");
         ds.setPoint("point 01");
         return ResponseEntity.ok("created");
     }

@@ -21,4 +21,9 @@ public class TourController {
     public ResponseEntity<?> getUpcomingTours(@RequestParam("limit") int limit) {
         return tourServices.getUpcomingTours(limit);
     }
+
+    @GetMapping
+    public ResponseEntity<?> filterTours(@RequestParam("from") String from, @RequestParam("from") String to){
+        return ResponseEntity.ok(tourServices.filterTours(from, to));
+    }
 }

@@ -29,5 +29,5 @@ public class Destination {
 
     private String point;
 
-    private String region;
+    private String planet;
 }

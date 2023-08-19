@@ -3,6 +3,8 @@ package com.nodehunters.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 @Builder
@@ -24,9 +26,13 @@ public class Tour {
 
     private double classThreeUnitPrice;
 
-    private String arrivalDateTime;
+    private Date arrivalDate;
 
-    private String departureDateTime;
+    private Date departureDate;
+
+    private Time arrivalTime;
+
+    private Time departureTime;
 
     @ManyToOne(
             cascade = CascadeType.ALL,

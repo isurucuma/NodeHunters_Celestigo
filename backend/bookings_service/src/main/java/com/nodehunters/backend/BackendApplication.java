@@ -17,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -63,7 +64,7 @@ public class BackendApplication {
 					.images(List.of("https://picsum.photos/200/300"))
 					.description("From Destination Description")
 					.point("point1")
-					.region("region1")
+					.planet("region1")
 					.build();
 
 			Destination toDestination = Destination.builder()
@@ -71,7 +72,7 @@ public class BackendApplication {
 					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
 					.description("To Destination Description")
 					.point("point2")
-					.region("region2")
+					.planet("region2")
 					.build();
 
 			SpaceShip spaceShip = SpaceShip.builder()
@@ -92,8 +93,8 @@ public class BackendApplication {
 					.classThreeUnitPrice(30)
 					.to(toDestination)
 					.from(fromDestination)
-					.departureDateTime("2024-05-05 12:00:00")
-					.arrivalDateTime("2025-05-05 12:00:00")
+					.departureDate(Date.valueOf("2024-05-05"))
+					.arrivalDate(Date.valueOf("2025-05-05"))
 					.spaceShip(spaceShip)
 					.build();
 
@@ -102,7 +103,7 @@ public class BackendApplication {
 					.images(List.of("https://picsum.photos/200/300"))
 					.description("From Destination Description2")
 					.point("point1")
-					.region("region1")
+					.planet("region1")
 					.build();
 
 			Destination toDestination2 = Destination.builder()
@@ -110,7 +111,7 @@ public class BackendApplication {
 					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
 					.description("To Destination Description2")
 					.point("point2")
-					.region("region2")
+					.planet("region2")
 					.build();
 
 			SpaceShip spaceShip2 = SpaceShip.builder()
@@ -131,8 +132,8 @@ public class BackendApplication {
 					.classThreeUnitPrice(30)
 					.to(toDestination2)
 					.from(fromDestination2)
-					.departureDateTime("2023-09-05 12:00:00")
-					.arrivalDateTime("2024-01-05 12:00:00")
+					.departureDate(Date.valueOf("2023-09-05"))
+					.arrivalDate(Date.valueOf("2024-01-05"))
 					.spaceShip(spaceShip2)
 					.build();
 

@@ -17,6 +17,10 @@ public class DestinationsService {
         return "ok";
     }
 
+    public Destination getByName(String name){
+        return destinationsRepository.findByName(name);
+    }
+
     public List<Destination> getAll(){
         return destinationsRepository.findAll().stream().toList();
     }
