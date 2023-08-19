@@ -8,8 +8,15 @@ import BackButton from "@/components/atoms/BackButton/BackButton";
 import TourCard from "@/components/molecules/TourCard/TourCard";
 import SearchBox from "@/components/molecules/search/searchBox";
 import SearchFilter from "@/components/molecules/SearchFilter/SearchFilter";
+import { useRouter } from "next/navigation";
 
 const SearchResults = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+  
   return (
     <AppTemplate>
       <Box
@@ -19,7 +26,7 @@ const SearchResults = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 8, marginBottom: "20px" }}>
           <PageTitle title="Search Results" />

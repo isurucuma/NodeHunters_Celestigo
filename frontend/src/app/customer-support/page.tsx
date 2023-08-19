@@ -6,8 +6,15 @@ import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import { ContactOption } from "@/components/molecules/ContactOption/ContactOption";
+import { useRouter } from "next/navigation";
 
 const CustomerSupport = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+
   return (
     <AppTemplate>
       <Box
@@ -17,7 +24,7 @@ const CustomerSupport = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
           <PageTitle title="Customer Support" />

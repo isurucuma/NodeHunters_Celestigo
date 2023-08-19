@@ -6,8 +6,14 @@ import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import TourCard from "@/components/molecules/TourCard/TourCard";
+import { useRouter } from "next/navigation";
 
 const UpcomingTours = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
   return (
     <AppTemplate>
       <Box
@@ -17,7 +23,7 @@ const UpcomingTours = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 8, marginBottom: "20px" }}>
           <PageTitle title="Upcoming Tours" />

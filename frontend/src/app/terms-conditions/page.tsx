@@ -5,9 +5,14 @@ import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
-
+import { useRouter } from "next/navigation";
 
 const TermsConditions = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
   return (
     <AppTemplate>
       <Box
@@ -17,7 +22,7 @@ const TermsConditions = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
           <PageTitle title="Terms & Conditions" />

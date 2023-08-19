@@ -11,8 +11,15 @@ import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
+import { useRouter } from "next/navigation";
 
 const ReviewBooking = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+  
   return (
     <AppTemplate>
       <Box
@@ -22,7 +29,7 @@ const ReviewBooking = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 2 }}>
           <Typography

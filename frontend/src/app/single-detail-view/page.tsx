@@ -7,8 +7,15 @@ import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import SingleViewHeader from "@/components/organisms/SingleViewHeader/SingleViewHeader";
 import SingleDetails from "@/components/molecules/SingleDetails/SingleDetails";
+import { useRouter } from "next/navigation";
 
 const SearchResults = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+  
   return (
     <AppTemplate>
       <Box
@@ -18,7 +25,7 @@ const SearchResults = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
           <SingleViewHeader />
           <SingleDetails
             from="Earth"

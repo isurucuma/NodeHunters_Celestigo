@@ -12,8 +12,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
-
 import * as yup from "yup";
+
 
 interface SingleDetailViewVerifyData {
   [key: string]: string;
@@ -23,6 +23,10 @@ interface SingleDetailViewVerifyData {
 const SingleDetailViewVerify = () => {
   const [personCount, setPersonCount] = useState(2); // Default is 2
   const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
 
   const defaultSingleDetailViewVerifyData: SingleDetailViewVerifyData = {};
   for (let i = 0; i < personCount; i++) {
@@ -68,7 +72,7 @@ const SingleDetailViewVerify = () => {
   return (
     <AppTemplate>
       <Box>
-        <BackButton />
+      <BackButton onClick={handleBackButtonClick} />
         <Box
           display="flex"
           flexDirection="column"
