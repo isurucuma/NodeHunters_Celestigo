@@ -72,7 +72,7 @@ export const MenuItem = ({ item }:{
             lineHeight: "normal",
           }}
         >
-           src={menuItems[item as keyof typeof menuItems].icon}
+           {menuItems[item as keyof typeof menuItems].text}
         </Typography>
       </Box>
       <Box>
