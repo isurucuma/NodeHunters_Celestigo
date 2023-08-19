@@ -1,34 +1,55 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { useRouter } from "next/navigation";
 
-export const MenuItem = ({ item }:{
-  item: string;
-}) => {
+interface MenuItemProps {
+  item: "editProfile" | "myBookings" | "support" | "terms" | "privacy" | "logout";
+}
+
+export const MenuItem = ({ item }: MenuItemProps) => {
+  const router = useRouter();
+
+  const handleItemClick = (link: string) => {
+    if(link === "/logout") {
+      localStorage.clear();
+      router.push("/signin");
+    }else{
+      router.push(link);
+    }
+    
+  };
+
   const menuItems = {
     editProfile: {
       text: "Edit Profile",
       icon: "/assets/icons/profile.png",
+      link: "/editProfile",
     },
     myBookings: {
       text: "My Bookings",
       icon: "/assets/icons/bookings.png",
+      link: "/my-bookings",
     },
     support: {
       text: "Customer Support",
       icon: "/assets/icons/support.png",
+      link: "/customer-support",
     },
     terms: {
       text: "Terms & Conditions",
       icon: "/assets/icons/terms.png",
+      link: "/terms-conditions",
     },
     privacy: {
       text: "Privacy Policy",
       icon: "/assets/icons/privacy.png",
+      link: "/privacy-policy",
     },
     logout: {
       text: "Logout",
       icon: "/assets/icons/logout.png",
+      link: "/logout",
     },
   };
 
@@ -45,6 +66,7 @@ export const MenuItem = ({ item }:{
         padding: "5px 20px",
         marginTop: "10px",
       }}
+      onClick={() => handleItemClick(menuItems[item].link)}
     >
       <Box
         sx={{
@@ -56,7 +78,7 @@ export const MenuItem = ({ item }:{
         <Box
           component="img"
           sx={{ width: "30px", height: "30px", objectFit: "cover" }}
-          src={menuItems[item as keyof typeof menuItems].icon}
+          src={menuItems[item].icon}
         />
       </Box>
       <Box>
@@ -72,7 +94,7 @@ export const MenuItem = ({ item }:{
             lineHeight: "normal",
           }}
         >
-           {menuItems[item as keyof typeof menuItems].text}
+          {menuItems[item].text}
         </Typography>
       </Box>
       <Box>

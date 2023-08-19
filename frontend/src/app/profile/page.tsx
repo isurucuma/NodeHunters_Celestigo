@@ -7,8 +7,15 @@ import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
 import { ProfileDetails } from "@/components/molecules/ProfileDetails/ProfileDetails";
 import { MenuItem } from "@/components/molecules/MenuItem/MenuItem";
+import { useRouter } from "next/navigation";
 
 const Profile = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+
   return (
     <AppTemplate>
       <Box
@@ -18,7 +25,7 @@ const Profile = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
           <PageTitle title="Profile" />
