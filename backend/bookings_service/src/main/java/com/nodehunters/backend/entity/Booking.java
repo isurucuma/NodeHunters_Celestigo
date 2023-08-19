@@ -1,19 +1,36 @@
 package com.nodehunters.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tbl_booking")
 public class Booking {
     @Id
-    private Long id;
+    private Long bookingId;
 
-    private String bookClass;
+    private String bookingClass;
 
     private int numberOfSeats;
 
-    private String dateTime;
+    private String bookedDateTime;
 
+    @ManyToOne(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+        name = "trip_id",
+        referencedColumnName = "tripId"
+    )
+    private Trip trip;
+
+    @ManyToOne(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+        name = "app_user_id",
+        referencedColumnName = "appUserId"
+    )
+    private AppUser appUser;
 }

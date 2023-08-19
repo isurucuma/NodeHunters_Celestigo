@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "tbl_payment_card")
 public class PaymentCard {
     @Id
-    private Long id;
+    private Long cardId;
     private String cardNumber;
     private String cardType;
 
@@ -16,8 +16,8 @@ public class PaymentCard {
     )
     @JoinColumn(
         name = "app_user_id",
-        referencedColumnName = "id"
+        referencedColumnName = "appUserId"
     )
-    private AppUser  appUser;
+    private AppUser appUser;
 
 }

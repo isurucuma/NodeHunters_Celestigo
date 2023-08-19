@@ -1,8 +1,6 @@
 package com.nodehunters.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -11,13 +9,14 @@ import java.util.List;
 public class Destination {
 
     @Id
-    private Long id;
+    private Long destinationId;
 
     private String name;
 
     private String description;
 
-    private String image;
+    @ElementCollection
+    private List<String> images;
 
     private String point;
 

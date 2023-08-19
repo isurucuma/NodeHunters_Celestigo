@@ -1,15 +1,18 @@
 package com.nodehunters.backend.entity;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_spaceship")
 public class SpaceShip {
 
     @Id
-    private Long id;
+    private Long spaceshipId;
 
     private String name;
 
@@ -25,6 +28,7 @@ public class SpaceShip {
 
     private int numberOfClassThreeSeats;
 
-    private String imageUrls;
+    @ElementCollection
+    private List<String> imageUrls;
 
 }
