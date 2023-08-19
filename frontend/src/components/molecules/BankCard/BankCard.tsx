@@ -1,5 +1,5 @@
 import BankCardDate from "@/components/atoms/BankCardDate/BankCardDate";
-import BankCardName from "@/components/atoms/BankCardName/bankCardName";
+import BankCardName from "@/components/atoms/BankCardName/BankCardName";
 import BankCardNum from "@/components/atoms/BankCardNum/BankCardNum";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
