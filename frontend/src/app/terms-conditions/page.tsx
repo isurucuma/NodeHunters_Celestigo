@@ -26,7 +26,7 @@ const TermsConditions = () => {
           <BackButton />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
-          <PageTitle title="Privacy Policy" />
+          <PageTitle title="Terms & Conditions" />
         </Box>
       </Box>
       <Typography
