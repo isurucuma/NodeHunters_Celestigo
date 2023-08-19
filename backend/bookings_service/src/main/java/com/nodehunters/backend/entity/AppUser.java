@@ -2,9 +2,17 @@ package com.nodehunters.backend.entity;
 
 import com.nodehunters.backend.auth.models.AuthUser;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tbl_app_user")
 public class AppUser {
