@@ -29,6 +29,6 @@ public class SpaceShip {
     private int numberOfClassThreeSeats;
 
     @ElementCollection
-    private List<String> imageUrls;
+    private List<String> images;
 
 }

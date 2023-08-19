@@ -13,7 +13,6 @@ import java.util.Set;
 public class AuthUser implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
     private Integer userId;
 
     @Column(unique = true)

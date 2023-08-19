@@ -26,7 +26,7 @@ public class Trip {
             fetch = FetchType.EAGER
     )
     @JoinColumn(
-            name = "destination_id",
+            name = "from_destination_id",
             referencedColumnName = "destinationId"
     )
     private Destination from;
@@ -36,7 +36,7 @@ public class Trip {
             fetch = FetchType.EAGER
     )
     @JoinColumn(
-            name = "destination_id",
+            name = "to_destination_id",
             referencedColumnName = "destinationId"
     )
     private Destination to;
