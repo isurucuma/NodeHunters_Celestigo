@@ -9,6 +9,7 @@ import java.util.List;
 public class PlacesToVisit {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long placeId;
 
     private String name;

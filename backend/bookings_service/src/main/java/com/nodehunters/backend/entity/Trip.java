@@ -9,6 +9,7 @@ import java.util.List;
 public class Trip {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tripId;
 
     private double classOneUnitPrice;

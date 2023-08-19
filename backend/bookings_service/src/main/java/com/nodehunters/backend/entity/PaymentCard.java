@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "tbl_payment_card")
 public class PaymentCard {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardId;
     private String cardNumber;
     private String cardType;

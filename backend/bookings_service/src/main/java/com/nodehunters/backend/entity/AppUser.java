@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name = "tbl_app_user")
 public class AppUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long appUserId;
 
     @OneToOne(

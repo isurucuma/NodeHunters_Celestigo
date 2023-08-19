@@ -9,6 +9,7 @@ import java.util.List;
 public class Destination {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long destinationId;
 
     private String name;
