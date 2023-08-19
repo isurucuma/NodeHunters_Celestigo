@@ -7,6 +7,7 @@ import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import TourCard from "@/components/molecules/TourCard/TourCard";
 import SearchBox from "@/components/molecules/search/searchBox";
+import SearchFilter from "@/components/molecules/SearchFilter/SearchFilter";
 
 const SearchResults = () => {
   return (
@@ -24,8 +25,9 @@ const SearchResults = () => {
           <PageTitle title="Search Results" />
         </Box>
         <Box>
-          <SearchBox />
+          <SearchFilter />
         </Box>
+
         <Box>
           <TourCard
             from="Earth"
