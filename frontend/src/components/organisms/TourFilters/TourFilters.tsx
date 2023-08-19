@@ -6,7 +6,11 @@ import { Typography } from "@mui/material";
 import PriceRange from "@/components/molecules/PriceRange/PriceRange";
 import SpaceShipCategory from "@/components/molecules/SpaceShipCategory/SpaceShipCategory";
 
-export const TourFilters = ({ open, anchorEl, onClose }) => {
+export const TourFilters = ({ open, anchorEl, onClose }:{
+  open: boolean,
+  anchorEl: HTMLElement | null,
+  onClose: () => void
+}) => {
   return (
     <>
       {open && (

@@ -9,12 +9,11 @@ import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/
 import { Calender } from "@/components/organisms/Calender/Calender";
 
 export default function SearchBox() {
-  const [anchorEl, setAnchorEl] = React.useState(null); // State to manage the anchor element for the popup
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget); // Open the popup by setting the anchor element
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null); // Close the popup
   };
@@ -87,10 +86,8 @@ export default function SearchBox() {
         </Grid>
       </Grid>
       <Container sx={{ marginTop: "20px" }}>
-        <PrimaryButton onClick={handleClick}>Select Dates</PrimaryButton>
+        <PrimaryButton onClick={() => handleClick}>Select Dates</PrimaryButton>
       </Container>
-
-      {/* Popup */}
       <Calender open={open} anchorEl={anchorEl} onClose={handleClose} />
     </Box>
   );

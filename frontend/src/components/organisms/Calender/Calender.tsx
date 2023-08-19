@@ -3,7 +3,11 @@ import Popover from "@mui/material/Popover";
 import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 
-export const Calender = ({ open, anchorEl, onClose }) => {
+export const Calender = ({ open, anchorEl, onClose }:{
+  open: boolean,
+  anchorEl: HTMLElement | null,
+  onClose: () => void
+}) => {
   return (
     <>
       {open && (

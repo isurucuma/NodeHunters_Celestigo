@@ -12,7 +12,7 @@ import { TourFilters } from "@/components/organisms/TourFilters/TourFilters";
 export default function SearchFilter() {
   const [anchorEl, setAnchorEl] = React.useState(null); // State to manage the anchor element for the popup
 
-  const handleClick = (event) => {
+  const handleClick = (event: { currentTarget: React.SetStateAction<null>; }) => {
     setAnchorEl(event.currentTarget); // Open the popup by setting the anchor element
   };
 
@@ -84,7 +84,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/calender.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={handleClick}
+            onClick={() => handleClick}
           />
           <Typography
             variant="body1"
@@ -97,7 +97,7 @@ export default function SearchFilter() {
               lineHeight: "normal",
               marginRight: "10px",
             }}
-            onClick={handleClick}
+            onClick={() => handleClick}
           >
             Edit dates
           </Typography>
@@ -105,7 +105,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/pencil.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={handleClick}
+            onClick={() => handleClick}
           />
         </Grid>
         <Grid
@@ -122,7 +122,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/filter.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={handleClick}
+            onClick={() => handleClick}
           />
           <Typography
             variant="body1"
@@ -135,7 +135,7 @@ export default function SearchFilter() {
               lineHeight: "normal",
               marginRight: "10px",
             }}
-            onClick={handleClick}
+            onClick={() => handleClick}
           >
             Filter
           </Typography>
