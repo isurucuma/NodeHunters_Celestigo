@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
 
-const PaymentComplete = () => {
+const MyBookings = () => {
   return (
     <AppTemplate>
       <Box
@@ -34,20 +34,63 @@ const PaymentComplete = () => {
               fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 500,
-              lineHeight: "30px",
-              letterSpacing: "0.63px",
               marginTop: "50px",
             }}
           >
-            Congratulations on securing your cosmic adventure with
-            Intergalactic!
+            My Bookings
           </Typography>
         </Box>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "#E9E9E9",
+            fontFamily: "Exo",
+            fontSize: "18px",
+            fontStyle: "normal",
+            fontWeight: 600,
+            lineHeight: "normal",
+            textAlign: "left",
+            alignSelf: "flex-start",
+          }}
+        >
+          Upcoming .....
+        </Typography>
       </Box>
       <CosmicTicket />
-      <PrimaryButton type="button">Find your next cosmic quest</PrimaryButton>
+
+      <Typography
+        variant="h2"
+        sx={{
+          color: "#E9E9E9",
+          fontFamily: "Exo",
+          fontSize: "18px",
+          fontStyle: "normal",
+          fontWeight: 600,
+          lineHeight: "normal",
+          textAlign: "left",
+          alignSelf: "flex-start",
+        }}
+      >
+        Past
+      </Typography>
+      <Typography
+        variant="h2"
+        sx={{
+          color: "#E9E9E9",
+          fontFamily: "Exo",
+          fontSize: "16px",
+          fontStyle: "normal",
+          fontWeight: 500,
+          lineHeight: "normal",
+          marginTop: "10px",
+        }}
+      >
+        Last Month ....
+      </Typography>
+      <CosmicTicket />
+      <CosmicTicket />
     </AppTemplate>
   );
 };
 
-export default PaymentComplete;
+export default MyBookings;
