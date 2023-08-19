@@ -58,7 +58,8 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(auth -> {
             auth.requestMatchers("/api/auth/**").permitAll();
-            auth.anyRequest().authenticated();
+            auth.requestMatchers("**").permitAll();
+//            auth.anyRequest().authenticated();
         });
         http.oauth2ResourceServer()
                 .jwt()

@@ -1,10 +1,7 @@
 package com.nodehunters.backend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,13 +9,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"bookings"})
 @Entity
-@Table(name = "tbl_trip")
-public class Trip {
+@Table(name = "tbl_tour")
+public class Tour {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tripId;
+    private Long tourId;
 
     private double classOneUnitPrice;
 
@@ -63,7 +61,7 @@ public class Trip {
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "trip"
+            mappedBy = "tour"
     )
     private List<Booking> bookings;
 

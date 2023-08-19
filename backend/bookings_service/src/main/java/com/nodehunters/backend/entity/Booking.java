@@ -28,10 +28,10 @@ public class Booking {
         fetch = FetchType.LAZY
     )
     @JoinColumn(
-        name = "trip_id",
-        referencedColumnName = "tripId"
+        name = "tour_id",
+        referencedColumnName = "tourId"
     )
-    private Trip trip;
+    private Tour tour;
 
     @ManyToOne(
         cascade = CascadeType.ALL,

@@ -4,8 +4,13 @@ import com.nodehunters.backend.auth.models.AuthUser;
 import com.nodehunters.backend.auth.models.Role;
 import com.nodehunters.backend.auth.repository.RoleRepository;
 import com.nodehunters.backend.auth.repository.UserRepository;
+import com.nodehunters.backend.entity.Destination;
+import com.nodehunters.backend.entity.SpaceShip;
+import com.nodehunters.backend.entity.Tour;
 import com.nodehunters.backend.repository.AppUserRepository;
+import com.nodehunters.backend.repository.DestinationsRepository;
 import com.nodehunters.backend.repository.PaymentCardRepository;
+import com.nodehunters.backend.repository.TourRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
@@ -45,9 +51,93 @@ public class BackendApplication {
 	}
 
 	@Bean
-	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, PaymentCardRepository paymentCardRepository){
+	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, PaymentCardRepository paymentCardRepository, DestinationsRepository destinationsRepository, TourRepository tourRepository){
 		return args -> {
 			System.out.println("Filling the database");
+			// Create a from destination
+			// Create a to destination
+			// create a Tour
+
+			Destination fromDestination = Destination.builder()
+					.name("From Destination")
+					.images(List.of("https://picsum.photos/200/300"))
+					.description("From Destination Description")
+					.point("point1")
+					.region("region1")
+					.build();
+
+			Destination toDestination = Destination.builder()
+					.name("To Destination")
+					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
+					.description("To Destination Description")
+					.point("point2")
+					.region("region2")
+					.build();
+
+			SpaceShip spaceShip = SpaceShip.builder()
+					.name("SpaceShip")
+					.type("type1")
+					.numberOfClassOneSeats(10)
+					.numberOfClassTwoSeats(20)
+					.numberOfClassThreeSeats(30)
+					.registrationNumber("reg1")
+					.description("SpaceShip Description")
+					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
+					.build();
+
+			Tour tour = Tour.builder()
+					.bookings(null)
+					.classOneUnitPrice(10)
+					.classTwoUnitPrice(20)
+					.classThreeUnitPrice(30)
+					.to(toDestination)
+					.from(fromDestination)
+					.departureDateTime("2024-05-05 12:00:00")
+					.arrivalDateTime("2025-05-05 12:00:00")
+					.spaceShip(spaceShip)
+					.build();
+
+			Destination fromDestination2 = Destination.builder()
+					.name("From Destination2")
+					.images(List.of("https://picsum.photos/200/300"))
+					.description("From Destination Description2")
+					.point("point1")
+					.region("region1")
+					.build();
+
+			Destination toDestination2 = Destination.builder()
+					.name("To Destination2")
+					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
+					.description("To Destination Description2")
+					.point("point2")
+					.region("region2")
+					.build();
+
+			SpaceShip spaceShip2 = SpaceShip.builder()
+					.name("SpaceShip2")
+					.type("type1")
+					.numberOfClassOneSeats(10)
+					.numberOfClassTwoSeats(20)
+					.numberOfClassThreeSeats(30)
+					.registrationNumber("reg1")
+					.description("SpaceShip Description2")
+					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
+					.build();
+
+			Tour tour2 = Tour.builder()
+					.bookings(null)
+					.classOneUnitPrice(10)
+					.classTwoUnitPrice(20)
+					.classThreeUnitPrice(30)
+					.to(toDestination2)
+					.from(fromDestination2)
+					.departureDateTime("2023-09-05 12:00:00")
+					.arrivalDateTime("2024-01-05 12:00:00")
+					.spaceShip(spaceShip2)
+					.build();
+
+			tourRepository.save(tour);
+			tourRepository.save(tour2);
 		};
 	}
 }
