@@ -9,39 +9,48 @@ import {
 } from "@/components/molecules/EditForm/EditForm";
 import Box from "@mui/material/Box";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "@/validations/SingleView/SingleViewValidation";
-import TextBlock from "@/components/atoms/TextBlock/TextBlock";
 import BackButton from "@/components/atoms/BackButton/BackButton";
-import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
-import Link from "@mui/material/Link";
 import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
+
+import * as yup from "yup";
 
 interface SingleDetailViewVerifyData {
   [key: string]: string;
 }
 
-const defaultSingleDetailViewVerifyData: SingleDetailViewVerifyData = {
-  fullname: "",
-  cosmicid: "",
-};
 
 const SingleDetailViewVerify = () => {
-  const [personCount, setPersonCount] = useState(1); // Default is 1
-  const [SingleDetailViewVerifyData, setSingleDetailViewVerifyData] =
-    useState<SingleDetailViewVerifyData>(defaultSingleDetailViewVerifyData);
+  const [personCount, setPersonCount] = useState(2); // Default is 2
   const router: any = useRouter();
+
+  const defaultSingleDetailViewVerifyData: SingleDetailViewVerifyData = {};
+  for (let i = 0; i < personCount; i++) {
+    defaultSingleDetailViewVerifyData[`fullname${i}`] = "1";
+    defaultSingleDetailViewVerifyData[`cosmicid${i}`] = "";
+  }
+
+  const schema = yup.object().shape(
+    Array.from({ length: personCount }).reduce<yup.ObjectShape>((acc, _, index) => {
+      const shape = {
+        [`fullname${index}`]: yup.string().required("Full Name is required"),
+        [`cosmicid${index}`]: yup.string().required("Cosmic ID is required"),
+      };
+      return { ...acc, ...shape };
+    }, {})
+  );
 
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<SingleDetailViewVerifyData>({
-    defaultValues: defaultSingleDetailViewVerifyData,
-    resolver: yupResolver(schema), // Use the modified validation schema
+    defaultValues: defaultSingleDetailViewVerifyData as SingleDetailViewVerifyData,
+    resolver: yupResolver<yup.AnyObject>(schema)
+    
   });
 
-  const onSubmit = (data: Record<string, string>) => {
+  const onSubmit = (data: { [x: string]: any; }) => {
     const persons = [];
     for (let i = 0; i < personCount; i++) {
       const fullname = data[`fullname${i}`];
@@ -50,6 +59,7 @@ const SingleDetailViewVerify = () => {
     }
 
     console.log(persons);
+    
 
     // Redirect to payment
     router.push("/make-payment");
