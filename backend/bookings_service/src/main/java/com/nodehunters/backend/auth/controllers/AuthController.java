@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 @CrossOrigin("*")
 public class AuthController {
     @Autowired
@@ -16,11 +16,11 @@ public class AuthController {
 
     @PostMapping("/register")
     public AuthUser registerUser(@RequestBody RegistrationDTO body){
-        return authenticationService.registerUser(body.getUsername(), body.getPassword());
+        return authenticationService.registerUser(body.getEmail(), body.getName(), body.getPassword());
     }
 
     @PostMapping("/login")
     public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body){
-        return authenticationService.loginUser(body.getUsername(), body.getPassword());
+        return authenticationService.loginUser(body.getEmail(), body.getPassword());
     }
 }

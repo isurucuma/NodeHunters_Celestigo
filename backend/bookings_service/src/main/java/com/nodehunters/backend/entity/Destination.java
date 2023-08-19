@@ -2,11 +2,13 @@ package com.nodehunters.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +17,7 @@ import java.util.List;
 public class Destination {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long destinationId;
 
     private String name;

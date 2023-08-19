@@ -35,24 +35,24 @@ public class AuthenticationService {
     @Autowired
     private TokenService tokenService;
 
-    public AuthUser registerUser(String username, String password){
+    public AuthUser registerUser(String email, String userName, String password){
         String encodedPassword = passwordEncoder.encode(password);
         Role userRole = roleRepository.findByAuthority("USER").get();
         Set<Role> authorities = new HashSet<>();
         authorities.add(userRole);
-        return userRepository.save(new AuthUser(0, username, encodedPassword, authorities));
+        return userRepository.save(new AuthUser(0, email, userName, encodedPassword, authorities));
     }
 
     // user tries to log in by entering the username and the password
     // controller will pass the password and the username to this method
-    public LoginResponseDTO loginUser(String username, String password){
+    public LoginResponseDTO loginUser(String email, String password){
         try{
             // authenticationManager will try to authenticate the user by using the username and the password
-            Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
             // if the authentication is successful then auth will contain the user details including the username,roles, etc
             // generate the jwt token
             String token = tokenService.generateJwt(auth);
-            return new LoginResponseDTO(userRepository.findByUsername(username).orElse(null), token);
+            return new LoginResponseDTO(userRepository.findByEmail(email).orElse(null), token);
         }catch(AuthenticationException e){
             return new LoginResponseDTO(null, "");
         }

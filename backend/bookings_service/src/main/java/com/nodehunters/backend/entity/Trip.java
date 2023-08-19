@@ -1,14 +1,23 @@
 package com.nodehunters.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tbl_trip")
 public class Trip {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tripId;
 
     private double classOneUnitPrice;

@@ -1,6 +1,7 @@
 package com.nodehunters.backend.auth.models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,6 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@Builder
 @Entity
 @Table(name = "users")
 public class AuthUser implements UserDetails{
@@ -15,8 +17,10 @@ public class AuthUser implements UserDetails{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
+    private String name;
+
     @Column(unique = true)
-    private String username;
+    private String email;
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER) // as soon as we fetch the user, we fetch the roles immediately
@@ -33,6 +37,14 @@ public class AuthUser implements UserDetails{
         return userId;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setAuthorities(Set<Role> authorities) {
         this.authorities = authorities;
     }
@@ -41,13 +53,18 @@ public class AuthUser implements UserDetails{
         this.userId = userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String username) {
+        this.name = username;
     }
 
-    public AuthUser(Integer userId, String username, String password, Set<Role> authorities) {
+    public String getName() {
+        return this.name;
+    }
+
+    public AuthUser(Integer userId, String email, String name, String password, Set<Role> authorities) {
         this.userId = userId;
-        this.username = username;
+        this.email = email;
+        this.name = name;
         this.password = password;
         this.authorities = authorities;
     }
@@ -67,28 +84,27 @@ public class AuthUser implements UserDetails{
         return this.password;
     }
 
-    @Override
     public String getUsername() {
-        return this.username;
+        return this.email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
