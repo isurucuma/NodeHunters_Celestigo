@@ -3,15 +3,9 @@ import React from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
-import TextBlock from "@/components/atoms/TextBlock/TextBlock";
-import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
-import CommonCard from "@/components/molecules/CommonCard/CommonCard";
-import PlanetCarousal from "@/components/organisms/PlanetCarousal/PlanetCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
-import PageContent from "@/components/atoms/PageContent/PageContent";
+
 
 const PrivacyPolicy = () => {
   return (
@@ -64,7 +58,7 @@ const PrivacyPolicy = () => {
         Process and manage bookings, payments, and transactions. Provide
         customer support and respond to inquiries. <br />
         Personalize your experience within the app. <br />
-        Improve our app's functionality, content, and user experience. Comply
+        Improve our app&rsquo;s functionality, content, and user experience. Comply
         with legal obligations. <br />
         Data Security <br />
         We take appropriate measures to protect your personal data from

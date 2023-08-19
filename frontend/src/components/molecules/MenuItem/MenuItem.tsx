@@ -2,7 +2,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-export const MenuItem = ({ item }) => {
+export const MenuItem = ({ item }:{
+  item: string;
+}) => {
   const menuItems = {
     editProfile: {
       text: "Edit Profile",
@@ -54,7 +56,7 @@ export const MenuItem = ({ item }) => {
         <Box
           component="img"
           sx={{ width: "30px", height: "30px", objectFit: "cover" }}
-          src={menuItems[item].icon}
+          src={menuItems[item as keyof typeof menuItems].icon}
         />
       </Box>
       <Box>
@@ -70,7 +72,7 @@ export const MenuItem = ({ item }) => {
             lineHeight: "normal",
           }}
         >
-          {menuItems[item].text}
+           src={menuItems[item as keyof typeof menuItems].icon}
         </Typography>
       </Box>
       <Box>

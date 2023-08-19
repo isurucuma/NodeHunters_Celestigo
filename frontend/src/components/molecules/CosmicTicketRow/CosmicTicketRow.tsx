@@ -21,7 +21,7 @@ export const CosmicTicketRow = ({
           fontFamily: "Exo",
           fontSize: "16px",
           fontStyle: "normal",
-          fontWeight: 400,
+          // fontWeight: 400,
           lineHeight: "42px",
           textAlign: "left",
           ...(isTotal ? { fontWeight: "700" } : { fontWeight: "500" }),

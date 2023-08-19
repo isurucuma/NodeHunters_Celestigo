@@ -3,15 +3,9 @@ import React from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
-import TextBlock from "@/components/atoms/TextBlock/TextBlock";
-import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
-import CommonCard from "@/components/molecules/CommonCard/CommonCard";
-import PlanetCarousal from "@/components/organisms/PlanetCarousal/PlanetCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
-import PageContent from "@/components/atoms/PageContent/PageContent";
+
 
 const TermsConditions = () => {
   return (
@@ -45,7 +39,7 @@ const TermsConditions = () => {
         }}
       >
         Last updated: 08/03/2160 <br /> <br /> Welcome to CelestiGo. These Terms
-        and Conditions ("Terms") outline the rules and guidelines for using
+        and Conditions (&quot;Terms&quot;) outline the rules and guidelines for using
         CelestiGo.
         <br /> <br /> Acceptance of Terms
         <br /> <br /> By accessing or using CelestiGo, you agree to comply with

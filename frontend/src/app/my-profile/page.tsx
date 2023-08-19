@@ -3,15 +3,8 @@ import React from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
-import TextBlock from "@/components/atoms/TextBlock/TextBlock";
-import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
-import CommonCard from "@/components/molecules/CommonCard/CommonCard";
-import PlanetCarousal from "@/components/organisms/PlanetCarousal/PlanetCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
-import PageContent from "@/components/atoms/PageContent/PageContent";
 import { ProfileDetails } from "@/components/molecules/ProfileDetails/ProfileDetails";
 import { MenuItem } from "@/components/molecules/MenuItem/MenuItem";
 
