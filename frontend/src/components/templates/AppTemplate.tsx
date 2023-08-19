@@ -1,12 +1,13 @@
 import React from "react";
 import Navigation from "../organisms/Navigation/Navigation";
+import Box from "@mui/material/Box";
 
 const AppTemplate = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <Box sx={{ width: "95%", margin: "auto" }}>
       {children}
       <Navigation />
-    </div>
+    </Box>
   );
 };
 
