@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
 import { useRouter } from "next/navigation";
+import styles from "./PaymentComplete.module.css"; // Add the CSS file
 
 const PaymentComplete = () => {
   const router: any = useRouter();
@@ -19,7 +20,7 @@ const PaymentComplete = () => {
   const handleBackButtonClick = () => {
     router.back();
   };
-  
+
   return (
     <AppTemplate>
       <Box
@@ -29,7 +30,7 @@ const PaymentComplete = () => {
         justifyContent="flex-start"
       >
         <Box>
-        <BackButton onClick={handleBackButtonClick} />
+          <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 2 }}>
           <Typography
@@ -53,6 +54,13 @@ const PaymentComplete = () => {
       </Box>
       <CosmicTicket />
       <PrimaryButton type="button">Find your next cosmic quest</PrimaryButton>
+      <Box className={styles.rocketContainer}>
+        <img
+          src="/assets/icons/moving-rocket.png"
+          alt="Rocket"
+          className={styles.flyingRocket}
+        />
+      </Box>
     </AppTemplate>
   );
 };

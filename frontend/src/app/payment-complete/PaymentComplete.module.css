@@ -1,0 +1,36 @@
+/* Your global CSS */
+
+.rocketContainer {
+  position: relative;
+  animation: rocketFlyUp 5s ease-out forwards; /* Apply the animation */
+}
+
+.flyingRocket {
+  position: fixed;
+  bottom: 0; /* Start at the bottom of the container */
+  left: 40%; /* Center the rocket */
+  animation: rocketMove 5s cubic-bezier(0.4, 0.15, 0.15, 1) forwards; /* Apply the animation */
+}
+
+@keyframes rocketMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(
+      calc(-50vh + 50%)
+    ); /* Move to the center of the page */
+  }
+  100% {
+    transform: translateY(-100vh); /* Move to the top of the page */
+  }
+}
+
+@keyframes rocketFlyUp {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
