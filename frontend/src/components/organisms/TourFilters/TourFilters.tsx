@@ -37,20 +37,20 @@ export const TourFilters = ({
         anchorEl={anchorEl}
         onClose={onClose}
         anchorOrigin={{
-          vertical: "top",
-          horizontal: "right", // Change this to "right"
+          vertical: "top", // Set to "top"
+          horizontal: "center",
         }}
         PaperProps={{
           sx: {
             background: "linear-gradient(90deg, #800080 0%, #001F3F 100%)",
             boxShadow: "none",
             borderRadius: "53px",
-            transform: "translateX(-100%)", // Slide in from the right
+            padding: "10px",
           },
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "right", // Change this to "right"
+          vertical: "bottom", // Set to "bottom"
+          horizontal: "center",
         }}
       >
         <Box sx={{ padding: "16px" }}>
