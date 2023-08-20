@@ -48,7 +48,29 @@ export default function SearchFilter() {
         <Grid item xs={10} sx={{ display: "flex" }}>
           <SearchBoxTextInput label="From" />
         </Grid>
-        {/* ... (similar blocks for "To" location input) */}
+        <Grid
+          item
+          xs={12}
+          sx={{
+            borderLeft: "2px dotted black",
+            margin: "0",
+            padding: "0",
+            marginLeft: "18px",
+            position: "absolute",
+            top: "60px",
+            height: "40px",
+          }}
+        />{" "}
+        <Grid item xs={2} sx={{ marginTop: "10px" }}>
+          <Box
+            component="img"
+            src="/assets/icons/location.png"
+            sx={{ width: "22px", height: "auto" }}
+          />
+        </Grid>
+        <Grid item xs={10} sx={{ display: "flex" }}>
+          <SearchBoxTextInput label="To" />
+        </Grid>
         <Grid
           item
           xs={8}
