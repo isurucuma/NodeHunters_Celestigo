@@ -24,7 +24,10 @@ public class TourController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<?> filterTours(@RequestParam("from") String from, @RequestParam("to") String to, @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate, @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate){
+    public ResponseEntity<?> filterTours(@RequestParam("from") String from,
+                                         @RequestParam("to") String to,
+                                         @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+                                         @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate){
         return tourServices.filterTours(from, to, startDate, endDate);
     }
 }

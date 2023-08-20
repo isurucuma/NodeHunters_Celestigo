@@ -7,13 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Service
@@ -29,10 +25,15 @@ public class TourServices {
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<List<Tour>> filterTours(String from, String to, Date startDate, Date endDate){
+    public ResponseEntity<List<Tour>> filterTours(String from,
+                                                  String to,
+                                                  Date startDate,
+                                                  Date endDate) {
         try{
             Destination dsFrom = destinationsService.getByName(from);
             Destination dsTo = destinationsService.getByName(to);
+
+
 
             Optional<List<Tour>> tours = tourRepository.findToursByDestinationAndArrivalDates(dsFrom,dsTo, startDate, endDate);
             return tours.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

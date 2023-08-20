@@ -80,5 +80,4 @@ public class Tour {
     @UpdateTimestamp
     private Instant updatedAt;
 
-
 }
