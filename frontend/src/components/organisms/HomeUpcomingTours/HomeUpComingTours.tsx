@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import HomeTourCard from "@/components/molecules/HomeTourCard/HomeTourCard";
 import Typography from "@mui/material/Typography";
+import { MiniTourCard } from "@/types/tourCard";
+import { http } from "@/services/http/httpCalls";
 
 function HomeUpComingTours() {
+  const [upcommingTourData, setUpcommingTourData] = useState<MiniTourCard[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchUpcomingTours = async () => {};
+  }, []);
+
   return (
     <Box>
       <Box
@@ -57,24 +67,17 @@ function HomeUpComingTours() {
           },
         }}
       >
-        <HomeTourCard
-          from="Earth"
-          to="Venus"
-          ship="Cruiser Spaceship"
-          date="Aug 21"
-        />
-        <HomeTourCard
-          from="Earth"
-          to="Venus"
-          ship="Cruiser Spaceship"
-          date="Aug 21"
-        />
-        <HomeTourCard
-          from="Earth"
-          to="Venus"
-          ship="Cruiser Spaceship"
-          date="Aug 21"
-        />
+        {upcommingTourData.map((tour) => {
+          return (
+            <HomeTourCard
+              from={tour.from}
+              to={tour.to}
+              ship={tour.ship}
+              date={tour.date}
+              imageUrl={tour.image}
+            />
+          );
+        })}
       </Box>
     </Box>
   );
