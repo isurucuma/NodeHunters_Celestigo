@@ -14,10 +14,10 @@ import java.util.Optional;
 @Transactional
 public interface TourRepository extends JpaRepository<Tour,Long>{
 
-    @Query(value = "SELECT * FROM tbl_tour WHERE tbl_tour.departure_date_time > CURRENT_TIMESTAMP ORDER BY tbl_tour.departure_date_time ASC LIMIT 5;", nativeQuery = true)
+    @Query(value = "SELECT * FROM tbl_tour WHERE tbl_tour.departure_date > CURRENT_TIMESTAMP ORDER BY tbl_tour.departure_date ASC LIMIT 5;", nativeQuery = true)
     Optional<List<Tour>> getUpcomingTours(int limit);
 
-    @Query("SELECT t FROM Tour t WHERE t.from = :fromDestination AND t.to = :toDestination AND t.arrivalDate >= :startDate AND t.arrivalDate <= :endDate")
+    @Query("SELECT t FROM Tour t WHERE t.from = :fromDestination AND t.to = :toDestination AND t.departureDate >= :startDate AND t.departureDate <= :endDate")
     Optional<List<Tour>> findToursByDestinationAndArrivalDates(
           Destination fromDestination,
           Destination toDestination,

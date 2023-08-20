@@ -14,34 +14,17 @@ import java.sql.Time;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FullTourResDto {
+public class ShortTourResDto {
 
-    private double classOneUnitPrice;
-
-    private double classTwoUnitPrice;
-
-    private double classThreeUnitPrice;
 
     private Date arrivalDate;
 
     private Date departureDate;
 
-    private Time arrivalTime;
-
-    private Time departureTime;
-
     private Destination from;
 
     private Destination to;
 
-    private SpaceShip spaceShip;
-
-    private int availableTotalSeats;
-
-    private int availableClassOneSeats;
-
-    private int availableClassTwoSeats;
-
-    private int availableClassThreeSeats;
+    private ShortSpaceShipRes spaceShip;
 
 }

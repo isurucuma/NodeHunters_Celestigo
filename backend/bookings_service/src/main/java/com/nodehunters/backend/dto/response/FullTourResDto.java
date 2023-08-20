@@ -1,6 +1,5 @@
 package com.nodehunters.backend.dto.response;
 
-import com.nodehunters.backend.entity.Booking;
 import com.nodehunters.backend.entity.Destination;
 import com.nodehunters.backend.entity.SpaceShip;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ import java.sql.Time;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TourResDto {
+public class FullTourResDto {
 
     private double classOneUnitPrice;
 

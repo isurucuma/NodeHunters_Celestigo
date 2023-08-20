@@ -1,6 +1,8 @@
 package com.nodehunters.backend.service;
 
-import com.nodehunters.backend.dto.response.TourResDto;
+import com.nodehunters.backend.dto.response.FullTourResDto;
+import com.nodehunters.backend.dto.response.ShortSpaceShipRes;
+import com.nodehunters.backend.dto.response.ShortTourResDto;
 import com.nodehunters.backend.entity.Booking;
 import com.nodehunters.backend.entity.Destination;
 import com.nodehunters.backend.entity.SpaceShip;
@@ -22,15 +24,28 @@ public class TourServices {
     private final DestinationsService destinationsService;
     private final ModelMapper modelMapper;
 
-    public ResponseEntity<?> getUpcomingTours(int limit) {
+    public ResponseEntity<List<ShortTourResDto>> getUpcomingTours(int limit) {
         Optional<List<Tour>> tours = tourRepository.getUpcomingTours(limit);
-        if (tours.isPresent()) {
-            return ResponseEntity.ok(tours.get());
+        return getShortTourRes(tours);
+    }
+
+    private ResponseEntity<List<ShortTourResDto>> getShortTourRes(Optional<List<Tour>> tours) {
+        if(tours.isPresent()){
+            List<Tour> tourList = tours.get();
+            List<ShortTourResDto> shortTourResDtoList = tourList.stream()
+                    .map(tour -> {
+                        ShortTourResDto shortTourResDto = modelMapper.map(tour, ShortTourResDto.class);
+                        ShortSpaceShipRes shortSpaceShipRes = modelMapper.map(tour.getSpaceShip(), ShortSpaceShipRes.class);
+                        shortTourResDto.setSpaceShip(shortSpaceShipRes);
+                        return shortTourResDto;
+                    })
+                    .toList();
+            return ResponseEntity.ok(shortTourResDtoList);
         }
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<List<Tour>> filterTours(String from,
+    public ResponseEntity<List<ShortTourResDto>> filterTours(String from,
                                                   String to,
                                                   Date startDate,
                                                   Date endDate) {
@@ -38,16 +53,14 @@ public class TourServices {
             Destination dsFrom = destinationsService.getByName(from);
             Destination dsTo = destinationsService.getByName(to);
 
-
-
             Optional<List<Tour>> tours = tourRepository.findToursByDestinationAndArrivalDates(dsFrom,dsTo, startDate, endDate);
-            return tours.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+            return getShortTourRes(tours);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
         }
     }
 
-    public ResponseEntity<TourResDto> getTourById(Long tourId) {
+    public ResponseEntity<FullTourResDto> getTourById(Long tourId) {
         Optional<Tour> tour = tourRepository.findById(tourId);
         if (tour.isPresent()){
             Tour tourObj = tour.get();
@@ -69,12 +82,12 @@ public class TourServices {
             int classOneSeats = spaceShip.getNumberOfClassOneSeats();
             int classTwoSeats = spaceShip.getNumberOfClassTwoSeats();
             int classThreeSeats = spaceShip.getNumberOfClassThreeSeats();
-            TourResDto tourResDto = modelMapper.map(tourObj, TourResDto.class);
-            tourResDto.setAvailableClassOneSeats(classOneSeats - classOneBookings);
-            tourResDto.setAvailableClassTwoSeats(classTwoSeats - classTwoBookings);
-            tourResDto.setAvailableClassThreeSeats(classThreeSeats - classThreeBookings);
-            tourResDto.setAvailableTotalSeats(classOneSeats + classTwoSeats + classThreeSeats - classOneBookings - classTwoBookings - classThreeBookings);
-            return ResponseEntity.ok(tourResDto);
+            FullTourResDto fullTourResDto = modelMapper.map(tourObj, FullTourResDto.class);
+            fullTourResDto.setAvailableClassOneSeats(classOneSeats - classOneBookings);
+            fullTourResDto.setAvailableClassTwoSeats(classTwoSeats - classTwoBookings);
+            fullTourResDto.setAvailableClassThreeSeats(classThreeSeats - classThreeBookings);
+            fullTourResDto.setAvailableTotalSeats(classOneSeats + classTwoSeats + classThreeSeats - classOneBookings - classTwoBookings - classThreeBookings);
+            return ResponseEntity.ok(fullTourResDto);
         }
         return ResponseEntity.notFound().build();
     }

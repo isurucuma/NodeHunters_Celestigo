@@ -2,30 +2,27 @@ package com.nodehunters.backend.dto.response;
 
 import com.nodehunters.backend.entity.Destination;
 import com.nodehunters.backend.entity.SpaceShip;
+import jakarta.persistence.ElementCollection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.sql.Time;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShortTourResDto {
+public class ShortSpaceShipRes {
+    private Long spaceshipId;
 
+    private String name;
 
-    private Date arrivalDate;
+    private String type;
 
-    private Date departureDate;
-
-    private Destination from;
-
-    private Destination to;
-
-    private SpaceShip spaceShip;
-
+    @ElementCollection
+    private List<String> images;
 
 }
