@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -18,6 +20,8 @@ public class PaymentCard {
     private Long cardId;
     private String cardNumber;
     private String cardType;
+    private int cvc;
+    private Date expiearyDate;
 
     @ManyToOne(
         cascade = CascadeType.MERGE,

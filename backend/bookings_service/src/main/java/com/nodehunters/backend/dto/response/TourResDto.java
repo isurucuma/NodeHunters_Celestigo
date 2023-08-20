@@ -17,6 +17,8 @@ import java.sql.Time;
 @AllArgsConstructor
 public class TourResDto {
 
+    private Long tourId;
+
     private double classOneUnitPrice;
 
     private double classTwoUnitPrice;

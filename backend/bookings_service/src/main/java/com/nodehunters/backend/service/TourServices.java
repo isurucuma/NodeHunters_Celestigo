@@ -78,4 +78,11 @@ public class TourServices {
         }
         return ResponseEntity.notFound().build();
     }
+
+    public Tour getTourByOnlineId(Long id){
+
+        return tourRepository.findById(id).get();
+    }
+
+
 }
