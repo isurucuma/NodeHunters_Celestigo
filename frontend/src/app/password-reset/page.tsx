@@ -10,30 +10,50 @@ import { useRouter } from "next/navigation";
 
 const PasswordReset = () => {
   const router: any = useRouter();
-  
+
   return (
-    <Box>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      minHeight="100vh"
+      position="relative"
+    >
+      <Box sx={{ mb: 4 }}>
+        <PageTitle title="Forgot password?" />
+      </Box>
+      <Box sx={{ mb: 6 }}>
+        <TextBlock content="A password reset link will be sent to your email to reset your password. If you don't get an email within a few minutes, please re-try." />
+      </Box>
+
+      <Box sx={{ mb: 6 }}>
+        <PrimaryButton>Send reset link</PrimaryButton>
+      </Box>
+
       <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        height="100vh"
+        sx={{
+          position: "absolute",
+          bottom: "20px",
+          width: "75%",
+          mb: 2,
+          left: 0,
+          right: 0,
+          margin: "auto",
+        }}
       >
-        <Box sx={{ mb: 5 }}>
-          <PageTitle title="Forgot password?" />
-        </Box>
-        <Box sx={{ mb: 10 }}>
-          <TextBlock content="A password reset link will be sent to your email to reset your password. If you don't get an email within a few minutes, please re-try." />
-        </Box>
-
-        <Box sx={{ mb: 10 }}>
-          <PrimaryButton>Send reset link</PrimaryButton>
-        </Box>
-
-        <Box sx={{ position: "absolute", bottom: 0, width: "75%", mb: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <TextBlock inline content="Don’t have an account? " />
-          <Link onClick={() => router.push("/signup")}>
+          <Link
+            sx={{ marginLeft: "10px" }}
+            onClick={() => router.push("/signup")}
+          >
             <TextBlock link inline content="Sign up" />
           </Link>
         </Box>

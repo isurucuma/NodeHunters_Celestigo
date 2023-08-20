@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=Orbitron:wght@500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=Exo:wght@300;400;500&family=Orbitron:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=Exo:wght@300;400;500,600&family=Orbitron:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -96,6 +102,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+#choose-ship-select,
+#choose-class-select {
+  white-space: normal;
 }
 
 a {

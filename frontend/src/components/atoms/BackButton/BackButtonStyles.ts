@@ -4,6 +4,7 @@ const backButtonStyles = {
     position: "absolute",
     top: "25px",
     left: "50px",
+    zIndex: 1,
   },
 };
 

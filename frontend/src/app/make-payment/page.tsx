@@ -12,8 +12,15 @@ import HalfBankCard from "@/components/molecules/HalfBankCard/HalfBankCard";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import CartAmount from "@/components/organisms/CartAmount/CartAmount";
+import { useRouter } from "next/navigation";
 
 const MakePayment = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+  
   return (
     <AppTemplate>
       <Box
@@ -23,7 +30,7 @@ const MakePayment = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 8 }}>
           <PageTitle title="Secure Payment" />

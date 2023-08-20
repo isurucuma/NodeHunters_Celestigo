@@ -13,8 +13,15 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import CartAmount from "@/components/organisms/CartAmount/CartAmount";
 import BankCard from "@/components/molecules/BankCard/BankCard";
+import { useRouter } from "next/navigation";
 
 const AddBankCard = () => {
+  const router: any = useRouter();
+
+  const handleBackButtonClick = () => {
+    router.back();
+  };
+
   return (
     <AppTemplate>
       <Box
@@ -24,7 +31,7 @@ const AddBankCard = () => {
         justifyContent="flex-start"
       >
         <Box>
-          <BackButton />
+        <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 8, marginBottom: "20px" }}>
           <PageTitle title="Card Details" />

@@ -13,7 +13,7 @@ const themeOptions: ThemeOptions = {
     fontFamily: roboto.style.fontFamily,
   },
   palette: {
-    mode: "dark",
+    mode: "light",
   },
 };
 

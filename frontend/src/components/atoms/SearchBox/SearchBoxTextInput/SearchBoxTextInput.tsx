@@ -2,25 +2,31 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import { getAllDestination } from '@/services/destination/destinationService'; 
 
-const placeList = [
-  { place: 'Earth p1' },
-  { place: 'Earth p2' },
-  { place: 'Earth p3' },
-  { place: 'Venus p1' },
-  { place: 'Venus p2' },
-  { place: 'Venus p3' },
-  { place: 'Mars p1' },
-  { place: 'Mars p2' },
-  { place: 'Mars p3' },
-];
-
-export default function SearchBoxTextInput({label}: {label: string}) {
+export default function SearchBoxTextInput({
+  label,
+  setInput
+}: {
+  label: string;
+  setInput: (value: string | null) => void;
+}) {
   const [selectedValue, setSelectedValue] = React.useState<string | null>(null);
+  const [placeList, setPlaceList] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    // Fetch tour data here
+    const fetchTours = async () => {
+      const data = await getAllDestination();
+      console.log(data);
+      setPlaceList(data);
+    };
+    fetchTours();
+  }, []);
 
   const handleSelect = (event: React.ChangeEvent<{}>, value: string | null) => {
     setSelectedValue(value);
-    console.log(value);
+    setInput(value);
   };
 
   return (
@@ -29,7 +35,7 @@ export default function SearchBoxTextInput({label}: {label: string}) {
         freeSolo
         id="free-solo-2-demo"
         disableClearable
-        options={placeList.map((option) => option.place)}
+        options={placeList.map((option) => option.planet + " " + option.place)}
         onChange={handleSelect}
         renderInput={(params) => (
           <TextField

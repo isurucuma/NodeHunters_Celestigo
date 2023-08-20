@@ -4,6 +4,7 @@ import AppName from "@/components/atoms/AppName/AppName";
 import styles from "./page.module.css";
 import Logo from "@/components/atoms/Logo/Logo";
 import { useRouter } from "next/navigation";
+import { FooterText } from "@/components/molecules/FooterText/FooterText";
 
 export default function Splash() {
   const router: any = useRouter();
@@ -28,10 +29,11 @@ export default function Splash() {
   };
 
   return (
-    <div className={styles.splash} onClick={handleClick}>
-      <div>
+    <div className={styles.splashContainer} onClick={handleClick}>
+      <div className={styles.splashContent}>
         <Logo />
         <AppName />
+        <FooterText />
       </div>
     </div>
   );
