@@ -139,17 +139,17 @@ public class BackendApplication {
 			PlacesToVisit pl1 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img1", "img2"))
-					.name("vally")
+					.title("vally")
 					.build();
 			PlacesToVisit pl2 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img11", "img21"))
-					.name("hill top")
+					.title("hill top")
 					.build();
 			PlacesToVisit pl3 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img4", "img5"))
-					.name("mountain")
+					.title("mountain")
 					.build();
 
 
