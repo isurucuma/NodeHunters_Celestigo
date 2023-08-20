@@ -110,7 +110,9 @@ body {
 .MuiOutlinedInput-notchedOutline {
   border: none !important;
 }
-
+.mui-l4ivxp-MuiPickersLayout-root .MuiPickersLayout-actionBar {
+  display: none !important;
+}
 a {
   color: inherit;
   text-decoration: none;
