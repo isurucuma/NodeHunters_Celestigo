@@ -172,6 +172,7 @@ export default function SingleDetails({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Box
