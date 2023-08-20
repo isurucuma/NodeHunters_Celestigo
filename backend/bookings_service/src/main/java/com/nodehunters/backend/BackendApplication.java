@@ -53,7 +53,7 @@ public class BackendApplication {
 
 			Destination fromDestination = Destination.builder()
 					.name("From Destination")
-					.images(List.of("https://picsum.photos/200/300"))
+					.images(List.of("/assets/images/planet/jupiter/jupiter2.jpg"))
 					.description("From Destination Description")
 					.point("point1")
 					.planet("region1")
@@ -62,7 +62,7 @@ public class BackendApplication {
 
 			Destination toDestination = Destination.builder()
 					.name("To Destination")
-					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
+					.images(List.of("/assets/images/planet/jupiter/jupiter3.jpg", "/assets/images/planet/jupiter/jupiter4.jpg"))
 					.description("To Destination Description")
 					.point("point2")
 					.planet("region2")
@@ -77,7 +77,7 @@ public class BackendApplication {
 					.numberOfClassThreeSeats(30)
 					.registrationNumber("reg1")
 					.description("SpaceShip Description")
-					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
+					.images(List.of("/assets/images/planet/jupiter/jupiter3.jpg", "/assets/images/planet/jupiter/jupiter4.jpg"))
 					.build();
 			spaceShip = spaceShipsRepository.save(spaceShip);
 
@@ -91,6 +91,7 @@ public class BackendApplication {
 					.departureDate(Date.valueOf("2024-05-05"))
 					.arrivalDate(Date.valueOf("2026-05-05"))
 					.spaceShip(spaceShip)
+					.price(3000)
 					.build();
 
 			Destination fromDestination2 = Destination.builder()
@@ -104,7 +105,7 @@ public class BackendApplication {
 
 			Destination toDestination2 = Destination.builder()
 					.name("To Destination2")
-					.images(List.of("https://picsum.photos4/200/300", "https://picsum.photos5/200/300"))
+					.images(List.of("/assets/images/planet/jupiter/jupiter3.jpg", "/assets/images/planet/jupiter/jupiter4.jpg"))
 					.description("To Destination Description2")
 					.point("point2")
 					.planet("region2")
@@ -119,7 +120,7 @@ public class BackendApplication {
 					.numberOfClassThreeSeats(30)
 					.registrationNumber("reg1")
 					.description("SpaceShip Description2")
-					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
+					.images(List.of("/assets/images/planet/jupiter/jupiter3.jpg", "/assets/images/planet/jupiter/jupiter4.jpg"))
 					.build();
 			spaceShip2 = spaceShipsRepository.save(spaceShip2);
 
@@ -134,6 +135,7 @@ public class BackendApplication {
 					.departureDate(Date.valueOf("2023-09-05"))
 					.arrivalDate(Date.valueOf("2024-01-05"))
 					.spaceShip(spaceShip2)
+					.price(1000)
 					.build();
 
 			PlacesToVisit pl1 = PlacesToVisit.builder()

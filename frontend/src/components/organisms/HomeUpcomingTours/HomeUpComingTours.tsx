@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import HomeTourCard from "@/components/molecules/HomeTourCard/HomeTourCard";
 import Typography from "@mui/material/Typography";
 import { MiniTourCard } from "@/types/tourCard";
-import { http } from "@/services/http/httpCalls";
+import { http } from "@/services/http/httpService";
 
 function HomeUpComingTours() {
   const [upcommingTourData, setUpcommingTourData] = useState<MiniTourCard[]>(
@@ -12,7 +12,25 @@ function HomeUpComingTours() {
   );
 
   useEffect(() => {
-    const fetchUpcomingTours = async () => {};
+    const fetchUpcomingTours = async () => {
+      const data = await http.get("/tour?limit=2");
+      console.log(data);
+      const tourData = data.data;
+      const tourCards = tourData.map((tour: any) => {
+        let tourCard: MiniTourCard = {
+          from: tour.from.name,
+          to: tour.to.name,
+          ship: tour.spaceShip.name,
+          date: tour.departureDate,
+          image: tour.to.images[0],
+          id: tour.tourId,
+          price: tour.price,
+        };
+        return tourCard;
+      });
+      setUpcommingTourData(tourCards);
+    };
+    fetchUpcomingTours();
   }, []);
 
   return (
@@ -70,11 +88,12 @@ function HomeUpComingTours() {
         {upcommingTourData.map((tour) => {
           return (
             <HomeTourCard
+              key={tour.id}
               from={tour.from}
               to={tour.to}
               ship={tour.ship}
               date={tour.date}
-              imageUrl={tour.image}
+              image={tour.image}
             />
           );
         })}

@@ -38,6 +38,8 @@ public class Tour {
 
     private Time departureTime;
 
+    private double price;
+
     @ManyToOne(
             cascade = CascadeType.MERGE,
             fetch = FetchType.EAGER

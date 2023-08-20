@@ -12,6 +12,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/tour")
+@CrossOrigin(origins = "*")
 public class TourController {
 
     private final TourServices tourServices;

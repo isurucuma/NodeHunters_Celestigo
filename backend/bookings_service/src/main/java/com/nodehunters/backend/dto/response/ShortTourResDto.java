@@ -15,8 +15,7 @@ import java.sql.Time;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShortTourResDto {
-
-
+    private Long tourId;
     private Date arrivalDate;
 
     private Date departureDate;

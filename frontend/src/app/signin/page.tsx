@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/validations/signIn/SignInValidation";
 import Link from "@mui/material/Link";
 import { useRouter } from "next/navigation";
+import { http } from "@/services/http/httpService";
 
 interface SignInData {
   email: string;
@@ -33,13 +34,29 @@ const Signin = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: SignInData) => {
+  const onSubmit = async (data: SignInData) => {
     setSignInData(data);
+    const body = await http.post("/auth/login", data);
+    console.log(body);
+    if (body.status === 200) {
+      localStorage.setItem("token", body.data.jwt);
+      router.push("/home");
+    } else {
+      console.log("Login Failed...");
+    }
 
-    console.log(data);
-
-    // redirect to home page
-    router.push("/home");
+    // const res = await fetch("http://localhost:8000/api/auth/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+    // if (res.status === 200) {
+    //   const body = await res.json();
+    //   localStorage.setItem("token", body.jwt);
+    //   router.push("/home");
+    // }
   };
 
   return (
