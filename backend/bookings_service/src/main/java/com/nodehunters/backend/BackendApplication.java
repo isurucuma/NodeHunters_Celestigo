@@ -15,6 +15,8 @@ import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -88,6 +90,8 @@ public class BackendApplication {
 					.classThreeUnitPrice(30)
 					.to(toDestination)
 					.from(fromDestination)
+					.arrivalTime(Time.valueOf(LocalTime.now()))
+					.departureTime(Time.valueOf(LocalTime.now()))
 					.departureDate(Date.valueOf("2024-05-05"))
 					.arrivalDate(Date.valueOf("2026-05-05"))
 					.spaceShip(spaceShip)
@@ -131,6 +135,8 @@ public class BackendApplication {
 					.classThreeUnitPrice(30)
 					.to(toDestination2)
 					.from(fromDestination2)
+					.arrivalTime(Time.valueOf(LocalTime.now()))
+					.departureTime(Time.valueOf(LocalTime.now()))
 					.departureDate(Date.valueOf("2023-09-05"))
 					.arrivalDate(Date.valueOf("2024-01-05"))
 					.spaceShip(spaceShip2)
@@ -139,17 +145,17 @@ public class BackendApplication {
 			PlacesToVisit pl1 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img1", "img2"))
-					.name("vally")
+					.title("vally")
 					.build();
 			PlacesToVisit pl2 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img11", "img21"))
-					.name("hill top")
+					.title("hill top")
 					.build();
 			PlacesToVisit pl3 = PlacesToVisit.builder()
 					.destination(toDestination2)
 					.images(Arrays.asList("img4", "img5"))
-					.name("mountain")
+					.title("mountain")
 					.build();
 
 
@@ -193,6 +199,7 @@ public class BackendApplication {
 					.tour(tour)
 					.numberOfSeats(2)
 					.bookingClass("class1")
+					.bookedDateTime("2023-08-20 14:02:31.195539")
 					.build();
 			bookingRepository.save(booking);
 		};

@@ -33,6 +33,7 @@ public class AppUser {
     )
     private AuthUser authUser;
 
+    @Column(nullable = false)
     private String cosmicId;
 
     @OneToMany(

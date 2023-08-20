@@ -6,8 +6,10 @@ import java.util.List;
 @Data
 public class PlacesToVisitResDto {
 
-    private String name;
+    private String title;
     private String description;
     private List<String> images;
+    private String climate;
+    private String culture;
 
 }

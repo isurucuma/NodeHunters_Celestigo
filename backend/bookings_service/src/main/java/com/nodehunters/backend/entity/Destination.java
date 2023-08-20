@@ -20,6 +20,7 @@ public class Destination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long destinationId;
 
+    @Column(nullable = false)
     private String name;
 
     private String description;

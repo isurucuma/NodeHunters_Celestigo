@@ -17,10 +17,13 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;
 
+    @Column(nullable = false)
     private String bookingClass;
 
+    @Column(nullable = false)
     private int numberOfSeats;
 
+    @Column(nullable = false)
     private String bookedDateTime;
 
     @ManyToOne(

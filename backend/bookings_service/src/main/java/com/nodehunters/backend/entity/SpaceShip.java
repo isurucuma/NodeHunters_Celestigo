@@ -20,12 +20,16 @@ public class SpaceShip {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long spaceshipId;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private String registrationNumber;
 
+    @Column(nullable = false)
     private String type;
 
     private int numberOfClassOneSeats;

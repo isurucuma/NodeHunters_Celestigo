@@ -24,18 +24,25 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tourId;
 
+    @Column(nullable = false)
     private double classOneUnitPrice;
 
+    @Column(nullable = false)
     private double classTwoUnitPrice;
 
+    @Column(nullable = false)
     private double classThreeUnitPrice;
 
+    @Column(nullable = false)
     private Date arrivalDate;
 
+    @Column(nullable = false)
     private Date departureDate;
 
+    @Column(nullable = false)
     private Time arrivalTime;
 
+    @Column(nullable = false)
     private Time departureTime;
 
     @ManyToOne(

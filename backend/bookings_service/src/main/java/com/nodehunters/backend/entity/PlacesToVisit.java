@@ -20,7 +20,8 @@ public class PlacesToVisit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long placeId;
 
-    private String name;
+    @Column(nullable = false)
+    private String title;
 
     private String description;
 
@@ -36,4 +37,8 @@ public class PlacesToVisit {
             referencedColumnName = "destinationId"
     )
     private Destination destination;
+
+    private String climate;
+
+    private String culture;
 }
