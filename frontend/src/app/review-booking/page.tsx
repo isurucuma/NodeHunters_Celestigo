@@ -17,8 +17,6 @@ import { getTour } from "@/services/tours/toursService";
 
 const ReviewBooking = () => {
   const router: any = useRouter();
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id") || "";
   const [tour, setTours] = useState<MiniTourCard>({
     id: "",
     from: "",
@@ -27,16 +25,39 @@ const ReviewBooking = () => {
     date: "",
     price: "",
     discount: "",
+    class: null,
   });
+  const [seatCount, setSeatCount] = useState<number>(1);
 
   useEffect(() => {
+    const tourBooking = JSON.parse(localStorage.getItem("tourBooking") || "");
+    setTours({
+      id: tourBooking.tourId,
+      from: tour.from,
+      to: tour.to,
+      ship: tour.ship,
+      date: tour.date,
+      price: tour.price,
+      discount: tour.discount,
+      class: tourBooking.class,
+    });
+    setSeatCount(tourBooking.seatCount);
+
     // Fetch tour data here
     const fetchTours = async () => {
-      const data = await getTour(id);
-      setTours(data);
+      const data = await getTour(tourBooking.tourId);
+      setTours({
+        id: tourBooking.tourId,
+        from: data.from,
+        to: data.to,
+        ship: data.ship,
+        date: data.date,
+        price: data.price,
+        discount: data.discount,
+        class: tourBooking.class,
+      });
     };
-    console.log("-------------");
-    console.log(id);
+
     fetchTours();
   }, []);
 
@@ -75,7 +96,7 @@ const ReviewBooking = () => {
         </Box>
       </Box>
       <CosmicTicket
-        key={id}
+        key={tour.id}
         id={tour.id}
         from={tour.from}
         to={tour.to}
