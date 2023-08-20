@@ -94,7 +94,7 @@ public class BackendApplication {
 					.to(toDestination)
 					.from(fromDestination)
 					.departureDate(Date.valueOf("2024-05-05"))
-					.arrivalDate(Date.valueOf("2025-05-05"))
+					.arrivalDate(Date.valueOf("2026-05-05"))
 					.spaceShip(spaceShip)
 					.build();
 

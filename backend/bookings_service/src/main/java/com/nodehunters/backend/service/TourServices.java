@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,19 +29,15 @@ public class TourServices {
         return ResponseEntity.notFound().build();
     }
 
-    public List<Tour> filterTours(String from, String to){
+    public ResponseEntity<List<Tour>> filterTours(String from, String to, Date startDate, Date endDate){
         try{
             Destination dsFrom = destinationsService.getByName(from);
             Destination dsTo = destinationsService.getByName(to);
-            List<Date> dates = Stream.of(
-                    Date.valueOf(LocalDate.of(2023, 8, 11)),
-                    Date.valueOf(LocalDate.of(2023, 12, 11))
-            ).collect(Collectors.toList());
-            List<Tour> tours = tourRepository.findToursByDestinationAndArrivalDates(dsFrom,dsTo, dates);
-            return tours;
-        }catch (Exception e){
-            return null;
-        }
 
+            Optional<List<Tour>> tours = tourRepository.findToursByDestinationAndArrivalDates(dsFrom,dsTo, startDate, endDate);
+            return tours.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

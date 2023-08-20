@@ -2,9 +2,12 @@ package com.nodehunters.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.Instant;
 import java.util.List;
 
 @Builder
@@ -70,6 +73,12 @@ public class Tour {
             mappedBy = "tour"
     )
     private List<Booking> bookings;
+
+    @CreationTimestamp
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    private Instant updatedAt;
 
 
 }
