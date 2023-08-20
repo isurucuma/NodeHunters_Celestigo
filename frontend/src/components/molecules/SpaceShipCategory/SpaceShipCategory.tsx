@@ -46,7 +46,7 @@ export default function SpaceShipCategory() {
           sx={{
             borderRadius: "15px",
             background: "rgba(255, 255, 255, 0.60)",
-            padding: "15px",
+
             marginRight: "10px",
             flex: "1",
           }}
@@ -66,7 +66,7 @@ export default function SpaceShipCategory() {
           sx={{
             borderRadius: "15px",
             background: "rgba(255, 255, 255, 0.60)",
-            padding: "15px",
+
             flex: "1",
           }}
         >
