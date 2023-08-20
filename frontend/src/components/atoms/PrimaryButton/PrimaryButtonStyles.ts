@@ -14,6 +14,7 @@ const primaryButtonStyles = {
     fontWeight: 500,
     lineHeight: "normal",
     letterSpacing: "0.72px",
+    marginBottom: "20px",
   },
 };
 
