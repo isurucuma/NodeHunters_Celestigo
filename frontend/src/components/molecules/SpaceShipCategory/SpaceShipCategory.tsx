@@ -5,15 +5,18 @@ import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import DropDown from "../Form/DropDown";
 
-function valuetext(value: number) {
-  return `${value}°C`;
-}
-
 export default function SpaceShipCategory() {
-  const [value, setValue] = React.useState<number[]>([20, 37]);
+  const [category, setCategory] = React.useState("");
+  const [shipClass, setShipClass] = React.useState("");
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
+  const handleShipChange = (selectedCategory: string) => {
+    console.log("Selected Category:", selectedCategory);
+    setCategory(selectedCategory);
+  };
+
+  const handleClassChange = (selectedClass: string) => {
+    console.log("Selected Class:", selectedClass);
+    setShipClass(selectedClass);
   };
 
   return (
@@ -48,7 +51,16 @@ export default function SpaceShipCategory() {
             flex: "1",
           }}
         >
-          <DropDown />
+          <DropDown
+            label="Choose ship"
+            options={[
+              "Explorer Spaceship",
+              "Cruiser Spaceship",
+              "Luxury Spaceship",
+            ]}
+            value={category}
+            onChange={handleShipChange}
+          />
         </Box>
         <Box
           sx={{
@@ -58,7 +70,12 @@ export default function SpaceShipCategory() {
             flex: "1",
           }}
         >
-          <DropDown />
+          <DropDown
+            label="Choose class"
+            options={["Class 1", "Class 2"]}
+            value={shipClass}
+            onChange={handleClassChange}
+          />
         </Box>
       </Box>
     </Box>

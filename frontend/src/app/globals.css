@@ -103,7 +103,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-#category-select {
+#choose-ship-select,
+#choose-class-select {
   white-space: normal;
 }
 

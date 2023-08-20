@@ -1,21 +1,32 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
 
-export default function DropDown() {
-  const [ship, setShip] = React.useState("");
+interface DropDownProps {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (selectedValue: string) => void;
+}
+
+export default function DropDown({
+  label,
+  options,
+  value,
+  onChange,
+}: DropDownProps) {
+  const labelId = `${label.toLowerCase().replace(/\s+/g, "-")}-select-label`;
 
   const handleChange = (event: SelectChangeEvent) => {
-    setShip(event.target.value as string);
+    onChange(event.target.value as string);
   };
 
   return (
     <FormControl sx={{ width: "100%", whiteSpace: "normal" }}>
       <InputLabel
-        id="category-select-label"
+        id={labelId}
         sx={{
           color: "#000",
           fontFamily: "Exo",
@@ -25,19 +36,21 @@ export default function DropDown() {
           lineHeight: "normal",
         }}
       >
-        Choose ship
+        {label}
       </InputLabel>
       <Select
-        labelId="category-select-label"
-        id="category-select"
-        value={ship}
-        label="Ship"
+        labelId={labelId}
+        id={`${label.toLowerCase().replace(/\s+/g, "-")}-select`}
+        value={value}
+        label={label}
         onChange={handleChange}
         sx={{ whiteSpace: "normal" }}
       >
-        <MenuItem value={10}>Explorer Spaceship</MenuItem>
-        <MenuItem value={20}>Cruiser Spaceship</MenuItem>
-        <MenuItem value={30}>Luxury Spaceship</MenuItem>
+        {options.map((option, index) => (
+          <MenuItem key={index} value={option}>
+            {option}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
