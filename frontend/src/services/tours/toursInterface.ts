@@ -4,8 +4,8 @@ export interface ISearchTourProps{
     from: string;
     to: string;
     dates: Date[];
-    priceRange: number[];
-    class : TourClass | null;
+    priceRange?: number[] | null;
+    class? : TourClass | null;
 }
 
 
