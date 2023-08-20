@@ -103,6 +103,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+#category-select {
+  white-space: normal;
+}
 
 a {
   color: inherit;

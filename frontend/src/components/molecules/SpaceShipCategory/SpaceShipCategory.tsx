@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
+import DropDown from "../Form/DropDown";
 
 function valuetext(value: number) {
   return `${value}°C`;
@@ -46,7 +47,9 @@ export default function SpaceShipCategory() {
             marginRight: "10px",
             flex: "1",
           }}
-        ></Box>
+        >
+          <DropDown />
+        </Box>
         <Box
           sx={{
             borderRadius: "15px",
@@ -54,7 +57,9 @@ export default function SpaceShipCategory() {
             padding: "15px",
             flex: "1",
           }}
-        ></Box>
+        >
+          <DropDown />
+        </Box>
       </Box>
     </Box>
   );
