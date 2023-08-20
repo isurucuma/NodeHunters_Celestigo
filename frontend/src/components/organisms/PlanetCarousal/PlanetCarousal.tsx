@@ -1,37 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SwipeableViews from "react-swipeable-views";
 import CommonCard from "@/components/molecules/CommonCard/CommonCard";
 import CarousalCount from "@/components/atoms/CarousalCount/CarousalCount";
 import CarousalArrow from "@/components/atoms/CarousalArrow/CarousalArrow";
+import { getLocationsList } from "@/services/tours/toursService";
+import { LocationData as LocationDataType } from "@/types/tourCard";
 
-const locations = [
-  {
-    label: "San Francisco – Oakland Bay Bridge, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bali, Indonesia",
-    imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
-  },
-  {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-];
+interface convertLocationType {
+  label: string;
+  imgPath: string;
+  title: {
+    title: string;
+    content: string;
+  };
+  climate: {
+    title: string;
+    content: string;
+  };
+  culture: {
+    title: string;
+    content: string;
+  };
+}
 
-function SwipeableTextMobileStepper() {
+
+
+const convertLocation = (location: LocationDataType):convertLocationType=> {
+  return {
+    label: location.title,
+    imgPath: location.img[0],
+    title: {
+      title: location.title,
+      content: location.titleDescription,
+    },
+    climate: {
+      title: "Climate",
+      content: location.climate,
+    },
+    culture: {
+      title: "Culture",
+      content: location.culture,
+    },
+  };
+};
+
+function SwipeableTextMobileStepper({ tourId }: { tourId: string }) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
+  const [locations, setLocations] = useState<convertLocationType[]>([]);
+
+  useEffect(() => {
+    // Fetch tour data here
+    const fetchTours = async () => {
+      const data = await getLocationsList(tourId);
+      console.log(data);
+      const convertedData = data.map((location) => convertLocation(location));
+      setLocations(convertedData);  
+    };
+    fetchTours();
+  }, []);
 
   const handleStepChange = (step: number) => {
     setActiveStep(step);
@@ -96,17 +125,17 @@ function SwipeableTextMobileStepper() {
                 }}
               >
                 <CommonCard
-                  title="Luminosa Oasis"
-                  content="Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary."
+                  title={step.title.title}
+                  content={step.title.content}
                 />
               </Box>
               <CommonCard
-                title="Climate"
-                content="Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead."
+                title={step.climate.title}
+                content={step.climate.content}
               />
               <CommonCard
-                title="Culture"
-                content="Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet."
+                title={step.culture.title}
+                content={step.culture.content}
               />
             </Box>
           </Box>

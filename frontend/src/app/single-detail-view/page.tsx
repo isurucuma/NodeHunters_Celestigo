@@ -38,16 +38,8 @@ const SearchResults = () => {
       const data = await getTour(id);
       setTours(data);
     };
-    console.log("-------------");
-    console.log(id );
-    fetchTours();
 
-    // create object in local storage
-    // tourBooking = {
-    //   tourId: id,
-    //   seatCount: seatCount
-    //  class: 
-    // }  
+    fetchTours();
 
     if (localStorage.getItem("tourBooking") === null) {
       localStorage.setItem("tourBooking", JSON.stringify({
@@ -99,16 +91,7 @@ const SearchResults = () => {
       >
         <Box>
         <BackButton onClick={handleBackButtonClick} />
-          <SingleViewHeader />
-          {/* <SingleDetails
-            key="1"
-            from="Earth"
-            to="Venus"
-            ship="Cruiser Spaceship"
-            date="Aug 21"
-            price="300K"
-            discount="-20"
-          /> */}
+          <SingleViewHeader id={id} />
           <SingleDetails
             key = {id}
             seatCount = {seatCount}
