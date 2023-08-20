@@ -52,7 +52,16 @@ const PaymentComplete = () => {
           </Typography>
         </Box>
       </Box>
-      <CosmicTicket />
+      <CosmicTicket
+        key="3"
+        id="3"
+        from="Earth"
+        to="Mars"
+        ship="SpaceX"
+        date="2021-03-02"
+        price="100000"
+        discount="-10"
+      />
       <PrimaryButton type="button">Find your next cosmic quest</PrimaryButton>
       <Box className={styles.rocketContainer}>
         <img

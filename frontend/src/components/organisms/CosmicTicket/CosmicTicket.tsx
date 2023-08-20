@@ -5,23 +5,39 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-const CosmicTicket = () => {
+export default function CosmicTicket({
+  key,
+  id,
+  from,
+  to,
+  ship,
+  date,
+  price,
+  discount,
+}: {
+  key: string;
+  id: string;
+  from: string;
+  to: string;
+  ship: string;
+  date: string;
+  price: string;
+  discount: string;
+}) {
   return (
     <Box sx={{ margin: "30px 0" }}>
       <CosmicTicketTitle position="top" />
       <Box sx={{ background: "#F6F6F6", padding: "15px 20px" }}>
-        <CosmicTicketRow title="From" value="Earth point 1" />
-        <CosmicTicketRow title="To" value="Venus point 3" />
-        <CosmicTicketRow title="Date" value="21 AUG 2160" />
-        <CosmicTicketRow title="Time" value="20:15" />
-        <CosmicTicketRow title="Spaceship" value="Explorer Spaceship" />
+        <CosmicTicketRow title="From" value={from} />
+        <CosmicTicketRow title="To" value={to} />
+        <CosmicTicketRow title="Date" value={date} />
+        <CosmicTicketRow title="Time" value={date} />
+        <CosmicTicketRow title="Spaceship" value={ship} />
         <CosmicTicketRow title="Class" value="Class 1" />
         <CosmicTicketRow title="Seats" value="2" />
-        <CosmicTicketRow title="Total Price" value="600000" isTotal={true} />
+        <CosmicTicketRow title="Total Price" value={price} isTotal={true} />
       </Box>
       <CosmicTicketTitle position="bottom" />
     </Box>
   );
-};
-
-export default CosmicTicket;
+}

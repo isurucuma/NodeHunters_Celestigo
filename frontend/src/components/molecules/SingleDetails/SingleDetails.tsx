@@ -7,6 +7,7 @@ import PriceToggleButton from "@/components/organisms/ToggleButton/ToggleButton"
 
 export default function SingleDetails({
   key,
+  seatCount,
   from,
   to,
   ship,
@@ -15,6 +16,7 @@ export default function SingleDetails({
   discount,
 }: {
   key: string;
+  seatCount: number;
   from: string;
   to: string;
   ship: string;
@@ -212,7 +214,7 @@ export default function SingleDetails({
             lineHeight: "normal",
           }}
         >
-          10
+          {seatCount}
         </Typography>
         <Box
           component="img"
