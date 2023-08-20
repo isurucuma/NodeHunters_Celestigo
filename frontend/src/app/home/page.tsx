@@ -14,11 +14,6 @@ const Home = () => {
   const router: any = useRouter();
 
   const handleSearchFilterVal= ( from : string | null , to: string | null, dates:Date[] ) =>{
-    console.log("--------------------");
-    console.log("Home page: useEffect: from", from);
-    console.log("Home page: useEffect: to", to);
-    console.log("Home page: useEffect: selectedDates", dates);
-    console.log("--------------------");
     setSearchFilterValues(  {from: from, to: to, dates: dates}  );
   }
 

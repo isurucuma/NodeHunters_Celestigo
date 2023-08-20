@@ -38,7 +38,7 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ width: "100%" }}>
       <SwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -56,6 +56,7 @@ function SwipeableTextMobileStepper() {
                 height: "450px",
                 borderRadius: "45px",
                 margin: "0 auto",
+                objectFit: "cover",
               }}
               src={step.imgPath}
               alt={step.label}
@@ -63,7 +64,7 @@ function SwipeableTextMobileStepper() {
 
             <Box
               sx={{
-                mt: "-120px",
+                mt: "-130px",
                 position: "relative",
               }}
             >

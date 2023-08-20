@@ -15,7 +15,7 @@ export default function SearchFilter({
     to: string | null,
     dates: Date[]
   ) => void;
-}) { 
+}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [calendarOpen, setCalendarOpen] = React.useState(false);
   const [filtersOpen, setFiltersOpen] = React.useState(false);
@@ -46,7 +46,7 @@ export default function SearchFilter({
     // console.log("Search page: useEffect: from", from);
     // console.log("Search page: useEffect: to", to);
     // console.log("Search page: useEffect: selectedDates", selectedDates);
-    setSearchFilterVal( from, to, selectedDates );
+    setSearchFilterVal(from, to, selectedDates);
   }, [from, to, selectedDates]);
 
   const handleClose = () => {
@@ -66,6 +66,7 @@ export default function SearchFilter({
             "linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.67) 100%)",
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
           padding: "20px",
+          paddingRight: "30px",
           marginTop: "20px",
           position: "relative",
         }}

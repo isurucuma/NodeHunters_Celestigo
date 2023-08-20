@@ -1,12 +1,12 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
-import { getAllDestination } from '@/services/destination/destinationService'; 
+import * as React from "react";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import Autocomplete from "@mui/material/Autocomplete";
+import { getAllDestination } from "@/services/destination/destinationService";
 
 export default function SearchBoxTextInput({
   label,
-  setInput
+  setInput,
 }: {
   label: string;
   setInput: (value: string | null) => void;
@@ -30,7 +30,7 @@ export default function SearchBoxTextInput({
   };
 
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
+    <Stack spacing={2} sx={{ width: "100%" }}>
       <Autocomplete
         freeSolo
         id="free-solo-2-demo"
@@ -43,7 +43,11 @@ export default function SearchBoxTextInput({
             label={label}
             InputProps={{
               ...params.InputProps,
-              type: 'search',
+              type: "search",
+              sx: {
+                borderRadius: "18px",
+                background: "#FFF",
+              },
             }}
           />
         )}
@@ -51,4 +55,3 @@ export default function SearchBoxTextInput({
     </Stack>
   );
 }
-

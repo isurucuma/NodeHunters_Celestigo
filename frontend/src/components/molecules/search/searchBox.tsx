@@ -16,7 +16,7 @@ export default function SearchBox({
     to: string | null,
     dates: Date[]
   ) => void;
-}) { 
+}) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const [selectedDates, setSelectedDates] = React.useState<Date[]>([]);
   const [from, setFrom] = React.useState<string | null>(null);
@@ -25,7 +25,7 @@ export default function SearchBox({
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = (selectedDatesList:Date[]) => {
+  const handleClose = (selectedDatesList: Date[]) => {
     setSelectedDates(selectedDatesList);
     setAnchorEl(null); // Close the popup
   };
@@ -35,15 +35,15 @@ export default function SearchBox({
   };
 
   const handleFromInput = (value: string | null) => {
-    setFrom(value); 
-  }
+    setFrom(value);
+  };
 
   React.useEffect(() => {
     // console.log("Home page: useEffect: from", from);
     // console.log("Home page: useEffect: to", to);
     // console.log("Home page: useEffect: selectedDates", selectedDates);
-    setSearchFilterVal( from, to, selectedDates );
-  }, [from, to,selectedDates]);
+    setSearchFilterVal(from, to, selectedDates);
+  }, [from, to, selectedDates]);
 
   const open = Boolean(anchorEl);
 
@@ -55,12 +55,11 @@ export default function SearchBox({
           color: "#FFF",
           textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
           fontFamily: "Orbitron",
-          fontSize: "27px",
+          fontSize: "25px",
           fontStyle: "normal",
           fontWeight: 500,
           lineHeight: "39px",
           letterSpacing: "0.81px",
-          marginTop: "40px",
         }}
       >
         Ready for your next cosmic voyage?
@@ -73,19 +72,21 @@ export default function SearchBox({
           background:
             "linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.67) 100%)",
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: "20px",
+          padding: "20px 10px",
+          paddingTop: "10px",
+          paddingRight: "25px",
           marginTop: "20px",
           position: "relative",
         }}
       >
-        <Grid item xs={2} sx={{ marginTop: "10px" }}>
+        <Grid item xs={1} sx={{ marginTop: "10px", margin: "auto" }}>
           <Box
             component="img"
             src="/assets/icons/location.png"
-            sx={{ width: "22px", height: "auto" }}
+            sx={{ width: "22px", height: "auto", padding: 0 }}
           />
         </Grid>
-        <Grid item xs={10} sx={{ display: "flex" }}>
+        <Grid item xs={11} sx={{ display: "flex" }}>
           <SearchBoxTextInput label="From" setInput={handleFromInput} />
         </Grid>
         <Grid
@@ -97,26 +98,27 @@ export default function SearchBox({
             padding: "0",
             marginLeft: "18px",
             position: "absolute",
-            top: "60px",
+            top: "52px",
             height: "40px",
           }}
         />
-        <Grid item xs={2} sx={{ marginTop: "10px" }}>
+        <Grid item xs={1} sx={{ marginTop: "10px", margin: "auto" }}>
           <Box
             component="img"
             src="/assets/icons/location.png"
             sx={{ width: "22px", height: "auto" }}
           />
         </Grid>
-        <Grid item xs={10} sx={{ display: "flex" }}>
-          <SearchBoxTextInput label="To" setInput={handleToInput}/>
+        <Grid item xs={11} sx={{ display: "flex" }}>
+          <SearchBoxTextInput label="To" setInput={handleToInput} />
         </Grid>
       </Grid>
-      <Container sx={{ marginTop: "20px" }}>
+      <Box
+        sx={{ marginTop: "20px", display: "flex", justifyContent: "center" }}
+      >
         <PrimaryButton onButtonClick={handleClick}>Select Dates</PrimaryButton>
-      </Container>
+      </Box>
       <Calender open={open} anchorEl={anchorEl} onClose={handleClose} />
     </Box>
   );
 }
- 

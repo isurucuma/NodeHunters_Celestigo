@@ -1,5 +1,5 @@
 "use client";
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, use} from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
@@ -16,6 +16,10 @@ const SearchResults = () => {
   const router: any = useRouter();
   const searchParams = useSearchParams()
   const id = searchParams.get('id') || "";
+
+  const [seatCount, setSeatCount] = useState<number>(2);
+  const [seatClass, setSeatClass] = useState<TourClass>(TourClass.first);
+
   const [tour, setTours] = useState<MiniTourCard>(
     {
       id: "",
@@ -34,10 +38,42 @@ const SearchResults = () => {
       const data = await getTour(id);
       setTours(data);
     };
-    console.log("-------------");
-    console.log(id );
+
     fetchTours();
+
+    if (localStorage.getItem("tourBooking") === null) {
+      localStorage.setItem("tourBooking", JSON.stringify({
+        tourId: id,
+        seatCount: seatCount,
+        class: seatClass
+      }));
+    }else{
+      let tourBooking = JSON.parse(localStorage.getItem("tourBooking") || "");
+      tourBooking.tourId = id;
+      tourBooking.seatCount = seatCount;
+      tourBooking.class = seatClass;
+      localStorage.setItem("tourBooking", JSON.stringify(tourBooking));
+    }
+
+
   }, []);
+
+
+  useEffect(() => {
+    if (localStorage.getItem("tourBooking") === null) {
+      localStorage.setItem("tourBooking", JSON.stringify({
+        tourId: id,
+        seatCount: seatCount,
+        class: seatClass
+      }));
+    }else{
+      let tourBooking = JSON.parse(localStorage.getItem("tourBooking") || "");
+      tourBooking.tourId = id;
+      tourBooking.seatCount = seatCount;
+      tourBooking.class = seatClass;
+      localStorage.setItem("tourBooking", JSON.stringify(tourBooking));
+    }
+  }, [seatCount, seatClass, id]);
 
 
 
@@ -55,18 +91,10 @@ const SearchResults = () => {
       >
         <Box>
         <BackButton onClick={handleBackButtonClick} />
-          <SingleViewHeader />
-          {/* <SingleDetails
-            key="1"
-            from="Earth"
-            to="Venus"
-            ship="Cruiser Spaceship"
-            date="Aug 21"
-            price="300K"
-            discount="-20"
-          /> */}
+          <SingleViewHeader id={id} />
           <SingleDetails
             key = {id}
+            seatCount = {seatCount}
             from={tour.from}
             to={tour.to}
             ship={tour.ship}
