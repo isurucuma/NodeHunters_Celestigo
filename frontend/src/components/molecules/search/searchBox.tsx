@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import Container from "@mui/material/Container";
 import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
-import { Calender } from "@/components/organisms/Calender/Calender";
+import Calender from "@/components/organisms/Calender/Calender";
 
 export default function SearchBox() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -86,7 +86,7 @@ export default function SearchBox() {
         </Grid>
       </Grid>
       <Container sx={{ marginTop: "20px" }}>
-        <PrimaryButton onClick={() => handleClick}>Select Dates</PrimaryButton>
+        <PrimaryButton onButtonClick={handleClick}>Select Dates</PrimaryButton>
       </Container>
       <Calender open={open} anchorEl={anchorEl} onClose={handleClose} />
     </Box>

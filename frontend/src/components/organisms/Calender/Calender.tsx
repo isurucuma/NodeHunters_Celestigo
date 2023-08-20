@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {
+  LocalizationProvider,
+  PickersDay,
+  StaticDatePicker,
+} from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import dayjs from "dayjs";
 import Popover from "@mui/material/Popover";
 import Box from "@mui/material/Box";
 import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 
-export const Calender = ({ open, anchorEl, onClose }:{
-  open: boolean,
-  anchorEl: HTMLElement | null,
-  onClose: () => void
+const Calender = ({
+  open,
+  anchorEl,
+  onClose,
+}: {
+  open: boolean;
+  anchorEl: HTMLElement | null;
+  onClose: () => void;
 }) => {
+  const [value, setValue] = useState(new Date());
+  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+
+  useEffect(() => {
+    let isHaveDate = false;
+    selectedDates.forEach((date) => {
+      if (dayjs(date).isSame(value, "day")) {
+        isHaveDate = true;
+      }
+    });
+    if (!isHaveDate) {
+      setSelectedDates((prev) => [...prev, value]);
+      console.log("add date: ", value);
+    } else {
+      setSelectedDates((prev) =>
+        prev.filter((date) => !dayjs(date).isSame(value, "day"))
+      );
+      console.log("remove date: ", value);
+    }
+    console.log("current selected dates: ", selectedDates);
+  }, [value]);
+
   return (
     <>
       {open && (
@@ -30,7 +63,7 @@ export const Calender = ({ open, anchorEl, onClose }:{
         anchorEl={anchorEl}
         onClose={onClose}
         anchorOrigin={{
-          vertical: "bottom",
+          vertical: "top",
           horizontal: "center",
         }}
         PaperProps={{
@@ -40,14 +73,54 @@ export const Calender = ({ open, anchorEl, onClose }:{
           },
         }}
         transformOrigin={{
-          vertical: "top",
+          vertical: "center",
           horizontal: "center",
         }}
       >
         <Box sx={{ padding: "16px" }}>
-          <PrimaryButton onClick={onClose}>Close</PrimaryButton>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <StaticDatePicker
+              sx={{ borderRadius: "32px" }} // Adding rounded border style
+              orientation="portrait"
+              value={value}
+              onChange={(newValue) => {
+                if (newValue !== null) {
+                  console.log("select this date:", newValue);
+                  setValue(newValue);
+                }
+              }}
+              slots={{
+                day: (props) => {
+                  let isSelected = false;
+                  selectedDates.forEach((date) => {
+                    if (dayjs(date).isSame(props.day, "day")) {
+                      isSelected = true;
+                    }
+                  });
+
+                  return (
+                    <PickersDay
+                      {...props}
+                      disableMargin
+                      selected={isSelected}
+                    />
+                  );
+                },
+              }}
+              slotProps={{
+                toolbar: {
+                  hidden: true,
+                },
+              }}
+            />
+          </LocalizationProvider>
+          <Box mt={2}>
+            <PrimaryButton onButtonClick={onClose}>Close</PrimaryButton>
+          </Box>
         </Box>
       </Popover>
     </>
   );
 };
+
+export default Calender;

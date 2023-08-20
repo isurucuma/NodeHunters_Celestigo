@@ -6,10 +6,14 @@ import { Typography } from "@mui/material";
 import PriceRange from "@/components/molecules/PriceRange/PriceRange";
 import SpaceShipCategory from "@/components/molecules/SpaceShipCategory/SpaceShipCategory";
 
-export const TourFilters = ({ open, anchorEl, onClose }:{
-  open: boolean,
-  anchorEl: HTMLElement | null,
-  onClose: () => void
+export const TourFilters = ({
+  open,
+  anchorEl,
+  onClose,
+}: {
+  open: boolean;
+  anchorEl: HTMLElement | null;
+  onClose: () => void;
 }) => {
   return (
     <>
@@ -33,19 +37,20 @@ export const TourFilters = ({ open, anchorEl, onClose }:{
         anchorEl={anchorEl}
         onClose={onClose}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
+          vertical: "top",
+          horizontal: "right", // Change this to "right"
         }}
         PaperProps={{
           sx: {
             background: "linear-gradient(90deg, #800080 0%, #001F3F 100%)",
             boxShadow: "none",
             borderRadius: "53px",
+            transform: "translateX(-100%)", // Slide in from the right
           },
         }}
         transformOrigin={{
           vertical: "top",
-          horizontal: "center",
+          horizontal: "right", // Change this to "right"
         }}
       >
         <Box sx={{ padding: "16px" }}>
