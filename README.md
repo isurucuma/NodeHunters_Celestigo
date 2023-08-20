@@ -35,6 +35,6 @@ That's it! You should now have the SolarSystem Tours Booking App up and running 
 
 For any questions, feedback, or issues, feel free to reach out to us. Happy exploring the solar system with our innovative booking app!
 
-[Link to ER Diagrams](insert_link_here)
+[Link to ER Diagrams](https://drive.google.com/file/d/1XrPqcscDajJX3o4sFjMxGFR2_ArqG8OC/view?usp=sharing)
 
 **Note:** This document provides a general overview and setup instructions for the project. For more detailed technical documentation and in-depth insights, refer to the respective README files within the frontend and backend directories.
