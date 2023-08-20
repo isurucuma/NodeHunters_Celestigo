@@ -1,7 +1,9 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Image from "next/image";
 import { Typography } from "@mui/material";
 import PriceToggleButton from "@/components/organisms/ToggleButton/ToggleButton";
 
@@ -13,7 +15,7 @@ export default function SingleDetails({
   ship,
   date,
   price,
-  discount
+  discount,
 }: {
   key: string;
   seatCount: number;
@@ -24,6 +26,37 @@ export default function SingleDetails({
   price: string;
   discount: string;
 }) {
+  const [seatCountN, setSeatCountN] = useState(seatCount);
+  const handleIncreaseSeat = () => {
+    const updatedSeatCount = seatCountN + 1;
+    setSeatCountN(updatedSeatCount);
+    updateLocalStorage(updatedSeatCount);
+  };
+
+  const handleDecreaseSeat = () => {
+    if (seatCountN > 0) {
+      const updatedSeatCount = seatCountN - 1;
+      setSeatCountN(updatedSeatCount);
+      updateLocalStorage(updatedSeatCount);
+    }
+  };
+
+  const updateLocalStorage = (updatedSeatCount: number) => {
+    const existingBooking = localStorage.getItem("tourBooking");
+    if (existingBooking) {
+      const tourBooking = JSON.parse(existingBooking);
+      tourBooking.seatCount = updatedSeatCount;
+      localStorage.setItem("tourBooking", JSON.stringify(tourBooking));
+    }
+  };
+
+  useEffect(() => {
+    let tourBooking = JSON.parse(localStorage.getItem("tourBooking") || "");
+    tourBooking.tourId = tourBooking.tourId;
+    tourBooking.seatCount = seatCount;
+    tourBooking.class = tourBooking.class;
+    localStorage.setItem("tourBooking", JSON.stringify(tourBooking));
+  }, [seatCountN]);
   return (
     <Box
       sx={{
@@ -196,11 +229,19 @@ export default function SingleDetails({
         >
           Seats
         </Typography>
-        <Box
-          component="img"
+        <Button
+          onClick={() => {
+            handleIncreaseSeat;
+          }}
           sx={{ margin: "20px 0" }}
-          src="/assets/icons/plus.png"
-        />
+        >
+          <Image
+            src="/assets/icons/plus.png"
+            alt="minus"
+            width={24}
+            height={24}
+          />
+        </Button>
         <Typography
           variant="body1"
           sx={{
@@ -213,13 +254,21 @@ export default function SingleDetails({
             lineHeight: "normal",
           }}
         >
-          {seatCount}
+          {seatCountN}
         </Typography>
-        <Box
-          component="img"
+        <Button
+          onClick={() => {
+            handleDecreaseSeat;
+          }}
           sx={{ margin: "20px 0" }}
-          src="/assets/icons/minus.png"
-        />
+        >
+          <Image
+            src="/assets/icons/minus.png"
+            alt="minus"
+            width={24}
+            height={24}
+          />
+        </Button>
       </Box>
     </Box>
   );

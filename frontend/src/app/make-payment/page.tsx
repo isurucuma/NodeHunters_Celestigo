@@ -20,7 +20,10 @@ const MakePayment = () => {
   const handleBackButtonClick = () => {
     router.back();
   };
-  
+  const handleButtonClick = () => {
+    router.push("/after-payment");
+  };
+
   return (
     <AppTemplate>
       <Box
@@ -30,7 +33,7 @@ const MakePayment = () => {
         justifyContent="flex-start"
       >
         <Box>
-        <BackButton onClick={handleBackButtonClick} />
+          <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 8 }}>
           <PageTitle title="Secure Payment" />
@@ -133,7 +136,7 @@ const MakePayment = () => {
         <HalfBankCard digits="5132" date="05/26" type="visa" />
         <HalfBankCard digits="5132" date="05/26" type="master" />
         <CartAmount classPrice={300000} seats={2} />
-        <PrimaryButton>Pay</PrimaryButton>
+        <PrimaryButton onButtonClick={handleButtonClick}>Pay</PrimaryButton>
       </Box>
     </AppTemplate>
   );
