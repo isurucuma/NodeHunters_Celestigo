@@ -17,6 +17,7 @@ const Welcome = () => {
     // redirect to sign in page
     router.push("/signin");
   };
+
   return (
     <Box
       display="flex"
@@ -25,10 +26,8 @@ const Welcome = () => {
       justifyContent="center"
       height="100vh"
     >
-      <Box sx={{ mb: 2 }}>
+      <Box sx={{ mb: 3, textAlign: "center" }}>
         <PageTitle title="Welcome" />
-      </Box>
-      <Box sx={{ mb: 7 }}>
         <TextBlock content="Get ready to launch into a new era of exploration and adventure. Your interstellar journey begins now. Let's explore the cosmos together!" />
       </Box>
       <Box>

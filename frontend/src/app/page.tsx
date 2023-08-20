@@ -28,8 +28,8 @@ export default function Splash() {
   };
 
   return (
-    <div className={styles.splash} onClick={handleClick}>
-      <div>
+    <div className={styles.splashContainer} onClick={handleClick}>
+      <div className={styles.splashContent}>
         <Logo />
         <AppName />
       </div>
