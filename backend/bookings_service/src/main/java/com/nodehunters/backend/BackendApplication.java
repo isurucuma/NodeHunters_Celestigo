@@ -4,17 +4,14 @@ import com.nodehunters.backend.auth.models.AuthUser;
 import com.nodehunters.backend.auth.models.Role;
 import com.nodehunters.backend.auth.repository.RoleRepository;
 import com.nodehunters.backend.auth.repository.UserRepository;
-import com.nodehunters.backend.entity.Destination;
-import com.nodehunters.backend.entity.SpaceShip;
-import com.nodehunters.backend.entity.Tour;
-import com.nodehunters.backend.repository.AppUserRepository;
-import com.nodehunters.backend.repository.DestinationsRepository;
-import com.nodehunters.backend.repository.PaymentCardRepository;
-import com.nodehunters.backend.repository.TourRepository;
+import com.nodehunters.backend.entity.*;
+import com.nodehunters.backend.repository.*;
+import org.hibernate.Session;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.sql.Date;
@@ -34,25 +31,19 @@ public class BackendApplication {
 		return args -> {
 			if(roleRepository.findByAuthority("ADMIN").isPresent()) return;
 			Role adminRole = roleRepository.save(new Role("ADMIN"));
-			Role userRole = roleRepository.save(new Role("USER"));
 
 			Set<Role> roles = new HashSet<>();
 			roles.add(adminRole);
 
 			AuthUser admin = new AuthUser(1, "admin@email.com","admin", passwordEncoder.encode("adminpass"), roles);
-			AuthUser user = AuthUser.builder()
-					.email("testUser@email.com")
-					.name("testUser")
-					.password(passwordEncoder.encode("testUserPass"))
-					.authorities(Set.of(userRole))
-					.build();
+
 			userRepository.save(admin);
-			userRepository.save(user);
+
 		};
 	}
 
 	@Bean
-	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, PaymentCardRepository paymentCardRepository, DestinationsRepository destinationsRepository, TourRepository tourRepository){
+	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, BookingRepository bookingRepository, PaymentCardRepository paymentCardRepository, DestinationsRepository destinationsRepository, TourRepository tourRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository){
 		return args -> {
 			System.out.println("Filling the database");
 			// Create a from destination
@@ -137,8 +128,48 @@ public class BackendApplication {
 					.spaceShip(spaceShip2)
 					.build();
 
+
 			tourRepository.save(tour);
 			tourRepository.save(tour2);
+
+
+
+			//Creating a auth user
+			Role userRole = roleRepository.save(new Role("USER"));
+			AuthUser authUser = AuthUser.builder()
+					.email("testUser@email.com")
+					.name("testUser")
+					.password(passwordEncoder.encode("testUserPass"))
+					.authorities(Set.of(userRole))
+					.build();
+			userRepository.save(authUser);
+			AuthUser savedAuthUser = userRepository.findByEmail(authUser.getEmail()).get();
+
+			// creating a app user
+			AppUser appUser = AppUser.builder()
+					.authUser(savedAuthUser)
+					.cosmicId("cos_1")
+					.build();
+			appUser = appUserRepository.save(appUser);
+
+			// creating a payment card
+			PaymentCard paymentCard = PaymentCard.builder()
+					.appUser(appUser)
+					.cardNumber("123456789")
+					.cardType("Visa")
+					.build();
+
+			// creating a booking
+			Booking booking = Booking.builder()
+					.appUser(appUser)
+					.tour(tour)
+					.numberOfSeats(2)
+					.bookingClass("class1")
+					.build();
+
+
+			paymentCardRepository.save(paymentCard);
+			bookingRepository.save(booking);
 		};
 	}
 }

@@ -20,7 +20,7 @@ public class PaymentCard {
     private String cardType;
 
     @ManyToOne(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.LAZY
     )
     @JoinColumn(

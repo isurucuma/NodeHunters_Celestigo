@@ -24,7 +24,7 @@ public class Booking {
     private String bookedDateTime;
 
     @ManyToOne(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.LAZY
     )
     @JoinColumn(
@@ -34,7 +34,7 @@ public class Booking {
     private Tour tour;
 
     @ManyToOne(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.LAZY
     )
     @JoinColumn(

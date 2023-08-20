@@ -24,7 +24,7 @@ public class AppUser {
     private Long appUserId;
 
     @OneToOne(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.LAZY
     )
     @JoinColumn(
@@ -36,14 +36,14 @@ public class AppUser {
     private String cosmicId;
 
     @OneToMany(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.EAGER,
         mappedBy = "appUser"
     )
     private List<PaymentCard> paymentCards;
 
     @OneToMany(
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.MERGE,
         fetch = FetchType.LAZY,
         mappedBy = "appUser"
     )
