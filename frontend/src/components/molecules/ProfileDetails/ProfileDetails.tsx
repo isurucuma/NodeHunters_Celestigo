@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-export const ProfileDetails = ({ isEdit }: { isEdit: boolean }) => {
+export const ProfileDetails = ({ isEdit }: { isEdit?: boolean }) => {
   return (
     <Box
       sx={{
