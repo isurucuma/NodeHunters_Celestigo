@@ -1,12 +1,12 @@
 import { MiniTourCard } from "@/types/tourCard";
-import {ISearchTourProps} from './toursInterface'
+import { ISearchTourProps } from "./toursInterface";
 import { LocationData as LocationDataType } from "@/types/tourCard";
 
-const SearchResultsData:MiniTourCard[] = [
+const SearchResultsData: MiniTourCard[] = [
   {
     id: "1",
     from: "Earth",
-    to: "neptune",
+    to: "Venus",
     ship: "Cruiser Spaceship",
     date: "Aug 21",
     price: "300K",
@@ -15,7 +15,7 @@ const SearchResultsData:MiniTourCard[] = [
   {
     id: "2",
     from: "Earth",
-    to: "Venus",
+    to: "venus",
     ship: "Cruiser Spaceship",
     date: "Aug 22",
     price: "300K",
@@ -24,22 +24,22 @@ const SearchResultsData:MiniTourCard[] = [
   {
     id: "3",
     from: "Earth",
-    to: "saturn",
+    to: "Venus",
     ship: "Cruiser Spaceship",
-    date: "Aug 22",
+    date: "Aug 24",
     price: "300K",
     discount: "-20",
   },
   {
     id: "4",
-    from: "Venus",
-    to: "Earth",
+    from: "Earth",
+    to: "Venus",
     ship: "Cruiser Spaceship",
-    date: "Aug 23",
+    date: "Aug 26",
     price: "300K",
     discount: "-20",
-  }
-]
+  },
+];
 
 // const locations = [
 //   {
@@ -131,64 +131,79 @@ const SearchResultsData:MiniTourCard[] = [
 // culture: string;
 // img:[string,string]
 
-const LocationData:LocationDataType[] = [
+const LocationData: LocationDataType[] = [
   {
     title: "Luminosa Oasis",
-    titleDescription: "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
-    climate: "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
-    culture: "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
-    img:["https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60","https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"]
+    titleDescription:
+      "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
+    climate:
+      "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
+    culture:
+      "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
+    img: [
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    ],
   },
   {
     title: "Aurora town",
-    titleDescription: "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
-    climate: "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
-    culture: "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
-    img:["https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60","https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"]
+    titleDescription:
+      "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
+    climate:
+      "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
+    culture:
+      "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
+    img: [
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    ],
   },
   {
     title: "celestial city",
-    titleDescription: "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
-    climate: "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
-    culture: "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
-    img:["https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60","https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"]
-  }
-]
-
-
+    titleDescription:
+      "Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary.",
+    climate:
+      "Venus boasts an extreme climate with scorching temperatures due to its thick atmosphere. The greenhouse effect creates a hostile environment with surface temperatures that can melt lead.",
+    culture:
+      "Venusian culture centers around the worship of the Sun, which dominates its sky. Rich mythology and rituals revolve around the star's significance to life on this planet.",
+    img: [
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    ],
+  },
+];
 
 async function searchTour(search: ISearchTourProps) {
   try {
     // const res = await http.get(`/item/tour/search?search=${search}`)
     // return res.data.tours
-    return SearchResultsData
+    return SearchResultsData;
   } catch (error: any) {
-    throw error.data.error
+    throw error.data.error;
   }
 }
 
 async function getTour(id: string) {
-    try {
-        // const res = await http.get(`/item/tour/${id}`)
-        // return res.data.tour
-        
-        const tour = SearchResultsData.find(tour => tour.id === id)
-        if(!tour) throw new Error('Tour not found')
-        return tour
-    } catch (error: any) {
-        throw error.data.error
-    }
-    }
+  try {
+    // const res = await http.get(`/item/tour/${id}`)
+    // return res.data.tour
+
+    const tour = SearchResultsData.find((tour) => tour.id === id);
+    if (!tour) throw new Error("Tour not found");
+    return tour;
+  } catch (error: any) {
+    throw error.data.error;
+  }
+}
 
 async function getLocationsList(tourId: string) {
   try {
     // const res = await http.get(`/item/tour/${tourId}/locations`)
     // return res.data.locations
-    return LocationData
+    return LocationData;
   } catch (error: any) {
-    throw error.data.error
+    throw error.data.error;
   }
 }
 
-
-export { searchTour, getTour,getLocationsList }
+export { searchTour, getTour, getLocationsList };

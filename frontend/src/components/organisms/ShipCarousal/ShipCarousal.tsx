@@ -8,14 +8,12 @@ import CarousalArrow from "@/components/atoms/CarousalArrow/CarousalArrow";
 
 const ships = [
   {
-    label: "San Francisco – Oakland Bay Bridge, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    label: "Cruiser Spaceship",
+    imgPath: "/assets/images/roket/1.jpg",
   },
   {
     label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+    imgPath: "/assets/images/roket/2.jpg",
   },
   {
     label: "Bali, Indonesia",
@@ -77,8 +75,8 @@ function SwipeableTextMobileStepper() {
                 }}
               >
                 <CommonCard
-                  title="Luminosa Oasis"
-                  content="Visitors can relax in geothermal spas, explore guided tours through the oasis, and learn about the cutting-edge technologies that sustain life in this otherworldly sanctuary."
+                  title="Cruiser Spaceship"
+                  content="Cruiser Spaceship is one of the best space ship in Intergalactic"
                 />
               </Box>
             </Box>

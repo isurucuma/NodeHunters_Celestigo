@@ -35,7 +35,7 @@ export default function CosmicTicket({
         <CosmicTicketRow title="Spaceship" value={ship} />
         <CosmicTicketRow title="Class" value="Class 1" />
         <CosmicTicketRow title="Seats" value="2" />
-        <CosmicTicketRow title="Total Price" value={price} isTotal={true} />
+        <CosmicTicketRow title="Total Price" value="600K" isTotal={true} />
       </Box>
       <CosmicTicketTitle position="bottom" />
     </Box>
