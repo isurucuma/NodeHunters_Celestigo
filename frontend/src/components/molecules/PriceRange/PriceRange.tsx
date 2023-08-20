@@ -1,15 +1,14 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 
 function valuetext(value: number) {
-  return `${value}°C`;
+  return `$${value}K`; // Display values with the 'K' suffix for thousands
 }
 
 export default function PriceRange() {
-  const [value, setValue] = React.useState<number[]>([20, 37]);
+  const [value, setValue] = React.useState<number[]>([0, 50]); // Adjusted initial values
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
@@ -41,6 +40,8 @@ export default function PriceRange() {
             backgroundColor: "#FFF",
           },
         }}
+        min={1}
+        max={5}
       />
       <Box
         sx={{
@@ -82,7 +83,7 @@ export default function PriceRange() {
               lineHeight: "normal",
             }}
           >
-            $ 60K
+            $ {value[0]}K
           </Typography>
         </Box>
         <Box
@@ -117,7 +118,7 @@ export default function PriceRange() {
               lineHeight: "normal",
             }}
           >
-            $ 300K
+            $ {value[1]}K
           </Typography>
         </Box>
       </Box>
