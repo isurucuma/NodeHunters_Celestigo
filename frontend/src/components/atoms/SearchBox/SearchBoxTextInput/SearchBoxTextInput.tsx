@@ -4,19 +4,13 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { getAllDestination } from '@/services/destination/destinationService'; 
 
-// const placeList = [
-//   { place: 'Earth p1' },
-//   { place: 'Earth p2' },
-//   { place: 'Earth p3' },
-//   { place: 'Venus p1' },
-//   { place: 'Venus p2' },
-//   { place: 'Venus p3' },
-//   { place: 'Mars p1' },
-//   { place: 'Mars p2' },
-//   { place: 'Mars p3' },
-// ];
-
-export default function SearchBoxTextInput({label}: {label: string}) {
+export default function SearchBoxTextInput({
+  label,
+  setInput
+}: {
+  label: string;
+  setInput: (value: string | null) => void;
+}) {
   const [selectedValue, setSelectedValue] = React.useState<string | null>(null);
   const [placeList, setPlaceList] = React.useState<any[]>([]);
 
@@ -32,7 +26,7 @@ export default function SearchBoxTextInput({label}: {label: string}) {
 
   const handleSelect = (event: React.ChangeEvent<{}>, value: string | null) => {
     setSelectedValue(value);
-    console.log(value);
+    setInput(value);
   };
 
   return (

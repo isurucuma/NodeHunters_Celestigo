@@ -8,15 +8,42 @@ import Container from "@mui/material/Container";
 import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
 import Calender from "@/components/organisms/Calender/Calender";
 
-export default function SearchBox() {
+export default function SearchBox({
+  setSearchFilterVal,
+}: {
+  setSearchFilterVal: (
+    from: string | null,
+    to: string | null,
+    dates: Date[]
+  ) => void;
+}) { 
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const [selectedDates, setSelectedDates] = React.useState<Date[]>([]);
+  const [from, setFrom] = React.useState<string | null>(null);
+  const [to, setTo] = React.useState<string | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (selectedDatesList:Date[]) => {
+    setSelectedDates(selectedDatesList);
     setAnchorEl(null); // Close the popup
   };
+
+  const handleToInput = (value: string | null) => {
+    setTo(value);
+  };
+
+  const handleFromInput = (value: string | null) => {
+    setFrom(value); 
+  }
+
+  React.useEffect(() => {
+    // console.log("Home page: useEffect: from", from);
+    // console.log("Home page: useEffect: to", to);
+    // console.log("Home page: useEffect: selectedDates", selectedDates);
+    setSearchFilterVal( from, to, selectedDates );
+  }, [from, to,selectedDates]);
 
   const open = Boolean(anchorEl);
 
@@ -59,7 +86,7 @@ export default function SearchBox() {
           />
         </Grid>
         <Grid item xs={10} sx={{ display: "flex" }}>
-          <SearchBoxTextInput label="From" />
+          <SearchBoxTextInput label="From" setInput={handleFromInput} />
         </Grid>
         <Grid
           item
@@ -82,7 +109,7 @@ export default function SearchBox() {
           />
         </Grid>
         <Grid item xs={10} sx={{ display: "flex" }}>
-          <SearchBoxTextInput label="To" />
+          <SearchBoxTextInput label="To" setInput={handleToInput}/>
         </Grid>
       </Grid>
       <Container sx={{ marginTop: "20px" }}>
@@ -92,3 +119,4 @@ export default function SearchBox() {
     </Box>
   );
 }
+ 
