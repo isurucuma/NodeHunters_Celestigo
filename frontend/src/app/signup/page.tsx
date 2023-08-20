@@ -53,54 +53,53 @@ const Signup = () => {
       minHeight="100vh"
       position="relative"
     >
-      <Box sx={{ mb: 4 }}>
+      <Box sx={{ width: "90%", maxWidth: "400px", mb: 4 }}>
         <PageTitle title="Sign up" />
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Box sx={{ mb: 2 }}>
+            <FormInput
+              name="name"
+              label="Name"
+              type="text"
+              placeholder="Enter your name"
+              error={Boolean(errors.name)}
+              helperText={errors.name?.message}
+              control={control}
+              rules={{ required: true }}
+            />
+          </Box>
+
+          <Box sx={{ mb: 2 }}>
+            <FormInput
+              name="email"
+              label="Email"
+              type="email"
+              placeholder="Enter your email"
+              error={Boolean(errors.email)}
+              helperText={errors.email?.message}
+              control={control}
+              rules={{ required: true }}
+            />
+          </Box>
+          <Box sx={{ mb: 2 }}>
+            <FormInput
+              name="password"
+              label="Password"
+              type="password"
+              placeholder="Enter your password"
+              error={Boolean(errors.password)}
+              helperText={errors.password?.message}
+              control={control}
+              rules={{ required: true }}
+            />
+          </Box>
+
+          <Box sx={{ mb: 2 }}>
+            <FormButton>Sign up</FormButton>
+          </Box>
+        </form>
       </Box>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={{ mb: 2 }}>
-          <FormInput
-            name="name"
-            label="Name"
-            type="text"
-            placeholder="Enter your name"
-            error={Boolean(errors.name)}
-            helperText={errors.name?.message}
-            control={control}
-            rules={{ required: true }}
-          />
-        </Box>
-
-        <Box sx={{ mb: 2 }}>
-          <FormInput
-            name="email"
-            label="Email"
-            type="email"
-            placeholder="Enter your email"
-            error={Boolean(errors.email)}
-            helperText={errors.email?.message}
-            control={control}
-            rules={{ required: true }}
-          />
-        </Box>
-        <Box sx={{ mb: 2 }}>
-          <FormInput
-            name="password"
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-            error={Boolean(errors.password)}
-            helperText={errors.password?.message}
-            control={control}
-            rules={{ required: true }}
-          />
-        </Box>
-
-        <Box sx={{ mb: 2 }}>
-          <FormButton>Sign up</FormButton>
-        </Box>
-      </form>
-
       <Box sx={{ mb: 2, textAlign: "center" }}>
         <TextBlock content="By the registration process, you accept our Privacy Policy and Terms of Service." />
       </Box>
