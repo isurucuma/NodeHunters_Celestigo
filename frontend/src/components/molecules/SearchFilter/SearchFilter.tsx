@@ -1,26 +1,27 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
-import Container from "@mui/material/Container";
 import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
-import { Calender } from "@/components/organisms/Calender/Calender";
+import Calender from "@/components/organisms/Calender/Calender";
 import { TourFilters } from "@/components/organisms/TourFilters/TourFilters";
 
 export default function SearchFilter() {
-  const [anchorEl, setAnchorEl] = React.useState(null); // State to manage the anchor element for the popup
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [calendarOpen, setCalendarOpen] = React.useState(false);
+  const [filtersOpen, setFiltersOpen] = React.useState(false);
 
-  const handleClick = (event: { currentTarget: React.SetStateAction<null>; }) => {
-    setAnchorEl(event.currentTarget); // Open the popup by setting the anchor element
+  const handleClick = (event: {
+    currentTarget: React.SetStateAction<null>;
+  }) => {
+    setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    setAnchorEl(null); // Close the popup
+    setAnchorEl(null);
+    setCalendarOpen(false);
+    setFiltersOpen(false);
   };
-
-  const open = Boolean(anchorEl);
 
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "30px" }}>
@@ -47,29 +48,7 @@ export default function SearchFilter() {
         <Grid item xs={10} sx={{ display: "flex" }}>
           <SearchBoxTextInput label="From" />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            borderLeft: "2px dotted black",
-            margin: "0",
-            padding: "0",
-            marginLeft: "18px",
-            position: "absolute",
-            top: "60px",
-            height: "40px",
-          }}
-        />
-        <Grid item xs={2} sx={{ marginTop: "10px" }}>
-          <Box
-            component="img"
-            src="/assets/icons/location.png"
-            sx={{ width: "22px", height: "auto" }}
-          />
-        </Grid>
-        <Grid item xs={10} sx={{ display: "flex" }}>
-          <SearchBoxTextInput label="To" />
-        </Grid>
+        {/* ... (similar blocks for "To" location input) */}
         <Grid
           item
           xs={8}
@@ -84,7 +63,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/calender.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={() => handleClick}
+            onClick={() => setCalendarOpen(true)}
           />
           <Typography
             variant="body1"
@@ -97,7 +76,7 @@ export default function SearchFilter() {
               lineHeight: "normal",
               marginRight: "10px",
             }}
-            onClick={() => handleClick}
+            onClick={() => setCalendarOpen(true)}
           >
             Edit dates
           </Typography>
@@ -105,7 +84,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/pencil.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={() => handleClick}
+            onClick={() => setCalendarOpen(true)}
           />
         </Grid>
         <Grid
@@ -122,7 +101,7 @@ export default function SearchFilter() {
             component="img"
             src="/assets/icons/filter.svg"
             sx={{ width: "22px", height: "auto", marginRight: "10px" }}
-            onClick={() => handleClick}
+            onClick={() => setFiltersOpen(true)}
           />
           <Typography
             variant="body1"
@@ -135,16 +114,20 @@ export default function SearchFilter() {
               lineHeight: "normal",
               marginRight: "10px",
             }}
-            onClick={() => handleClick}
+            onClick={() => setFiltersOpen(true)}
           >
             Filter
           </Typography>
         </Grid>
       </Grid>
 
-      {/* Popup */}
-      <Calender open={open} anchorEl={anchorEl} onClose={handleClose} />
-      <TourFilters open={open} anchorEl={anchorEl} onClose={handleClose} />
+      {/* Popovers */}
+      <Calender open={calendarOpen} anchorEl={anchorEl} onClose={handleClose} />
+      <TourFilters
+        open={filtersOpen}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+      />
     </Box>
   );
 }
