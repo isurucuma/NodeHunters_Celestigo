@@ -2,8 +2,13 @@ import BookButton from "@/components/atoms/BookButton/BookButton";
 import InfoIcon from "@/components/atoms/InfoIcon/InfoIcon";
 import Box from "@mui/material/Box";
 import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SingleViewHeader = () => {
+  const handleBookButtonClick = () => {
+    router.push("/single-detail-view-verify");
+  };
+  const router: any = useRouter();
   return (
     <Box sx={{ position: "absolute", top: "0", left: "0" }}>
       <Box sx={{ position: "relative" }}>
@@ -20,7 +25,7 @@ const SingleViewHeader = () => {
           src="https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
         />
         <InfoIcon />
-        <BookButton />
+        <BookButton onClick={handleBookButtonClick} />
       </Box>
     </Box>
   );
