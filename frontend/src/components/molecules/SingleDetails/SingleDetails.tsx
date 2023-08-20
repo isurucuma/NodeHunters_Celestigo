@@ -12,7 +12,7 @@ export default function SingleDetails({
   ship,
   date,
   price,
-  discount
+  discount,
 }: {
   key: string;
   from: string;
@@ -167,7 +167,7 @@ export default function SingleDetails({
       <Box
         sx={{
           position: "absolute",
-          top: "50px",
+          top: "100px",
           right: "20px",
           display: "flex",
           flexDirection: "column",

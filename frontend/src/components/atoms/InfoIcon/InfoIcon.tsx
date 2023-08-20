@@ -7,7 +7,7 @@ const InfoIcon = () => {
   return (
     <Box
       component="img"
-      src={"/assets/icons/info-icon.svg"}
+      src={"/assets/icons/info-icon.png"}
       sx={infoIconStyles.root}
     />
   );
