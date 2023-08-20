@@ -14,11 +14,9 @@ import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
 import * as yup from "yup";
 
-
 interface SingleDetailViewVerifyData {
   [key: string]: string;
 }
-
 
 const SingleDetailViewVerify = () => {
   const [personCount, setPersonCount] = useState(2); // Default is 2
@@ -35,13 +33,16 @@ const SingleDetailViewVerify = () => {
   }
 
   const schema = yup.object().shape(
-    Array.from({ length: personCount }).reduce<yup.ObjectShape>((acc, _, index) => {
-      const shape = {
-        [`fullname${index}`]: yup.string().required("Full Name is required"),
-        [`cosmicid${index}`]: yup.string().required("Cosmic ID is required"),
-      };
-      return { ...acc, ...shape };
-    }, {})
+    Array.from({ length: personCount }).reduce<yup.ObjectShape>(
+      (acc, _, index) => {
+        const shape = {
+          [`fullname${index}`]: yup.string().required("Full Name is required"),
+          [`cosmicid${index}`]: yup.string().required("Cosmic ID is required"),
+        };
+        return { ...acc, ...shape };
+      },
+      {}
+    )
   );
 
   const {
@@ -49,12 +50,12 @@ const SingleDetailViewVerify = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<SingleDetailViewVerifyData>({
-    defaultValues: defaultSingleDetailViewVerifyData as SingleDetailViewVerifyData,
-    resolver: yupResolver<yup.AnyObject>(schema)
-    
+    defaultValues:
+      defaultSingleDetailViewVerifyData as SingleDetailViewVerifyData,
+    resolver: yupResolver<yup.AnyObject>(schema),
   });
 
-  const onSubmit = (data: { [x: string]: any; }) => {
+  const onSubmit = (data: { [x: string]: any }) => {
     const persons = [];
     for (let i = 0; i < personCount; i++) {
       const fullname = data[`fullname${i}`];
@@ -63,7 +64,6 @@ const SingleDetailViewVerify = () => {
     }
 
     console.log(persons);
-    
 
     // Redirect to payment
     router.push("/make-payment");
@@ -72,7 +72,7 @@ const SingleDetailViewVerify = () => {
   return (
     <AppTemplate>
       <Box>
-      <BackButton onClick={handleBackButtonClick} />
+        <BackButton onClick={handleBackButtonClick} />
         <Box
           display="flex"
           flexDirection="column"

@@ -25,7 +25,7 @@ const Profile = () => {
         justifyContent="flex-start"
       >
         <Box>
-        <BackButton onClick={handleBackButtonClick} />
+          <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
           <PageTitle title="Profile" />
@@ -39,6 +39,11 @@ const Profile = () => {
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
           marginTop: "30px",
           paddingBottom: "30px",
+          position: "absolute",
+          top: "120px",
+          left: "0",
+          right: "0",
+          bottom: "0",
         }}
       >
         <ProfileDetails />

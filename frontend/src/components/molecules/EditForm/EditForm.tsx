@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Controller } from "react-hook-form";
 import { FormControl, TextField, FormHelperText } from "@mui/material";
@@ -40,6 +39,16 @@ const FormInput: React.FC<FormInputProps> = ({
           error={error}
           fullWidth
           variant="standard"
+          InputLabelProps={{
+            style: { color: "white", paddingBottom: "10px" }, // Change label color here
+          }}
+          InputProps={{
+            style: {
+              color: "white", // Change input text color here
+              borderBottomColor: "white", // Change input underline color here
+              paddingBottom: "10px",
+            },
+          }}
         />
       )}
     />

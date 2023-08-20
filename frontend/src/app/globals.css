@@ -107,6 +107,9 @@ body {
 #choose-class-select {
   white-space: normal;
 }
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
 
 a {
   color: inherit;
