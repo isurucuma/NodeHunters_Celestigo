@@ -22,7 +22,7 @@ const TermsConditions = () => {
         justifyContent="flex-start"
       >
         <Box>
-        <BackButton onClick={handleBackButtonClick} />
+          <BackButton onClick={handleBackButtonClick} />
         </Box>
         <Box sx={{ mb: 2, mt: 6 }}>
           <PageTitle title="Terms & Conditions" />
@@ -44,8 +44,8 @@ const TermsConditions = () => {
         }}
       >
         Last updated: 08/03/2160 <br /> <br /> Welcome to CelestiGo. These Terms
-        and Conditions (&quot;Terms&quot;) outline the rules and guidelines for using
-        CelestiGo.
+        and Conditions (&quot;Terms&quot;) outline the rules and guidelines for
+        using CelestiGo.
         <br /> <br /> Acceptance of Terms
         <br /> <br /> By accessing or using CelestiGo, you agree to comply with
         and be bound by these Terms. If you do not agree with any part of these
