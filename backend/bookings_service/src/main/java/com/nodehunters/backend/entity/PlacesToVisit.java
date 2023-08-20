@@ -28,7 +28,7 @@ public class PlacesToVisit {
     private List<String> images; 
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             fetch = FetchType.EAGER
     )
     @JoinColumn(

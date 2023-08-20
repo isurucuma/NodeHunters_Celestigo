@@ -15,6 +15,7 @@ import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.sql.Date;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,7 +44,7 @@ public class BackendApplication {
 	}
 
 	@Bean
-	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, BookingRepository bookingRepository, PaymentCardRepository paymentCardRepository, DestinationsRepository destinationsRepository, TourRepository tourRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository){
+	CommandLineRunner fillDatabase(AppUserRepository appUserRepository, BookingRepository bookingRepository, PaymentCardRepository paymentCardRepository, DestinationsRepository destinationsRepository, TourRepository tourRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository, PlacesToVisitRepository placesToVisitRepository, SpaceShipsRepository spaceShipsRepository){
 		return args -> {
 			System.out.println("Filling the database");
 			// Create a from destination
@@ -57,6 +58,7 @@ public class BackendApplication {
 					.point("point1")
 					.planet("region1")
 					.build();
+			fromDestination = destinationsRepository.save(fromDestination);
 
 			Destination toDestination = Destination.builder()
 					.name("To Destination")
@@ -65,6 +67,7 @@ public class BackendApplication {
 					.point("point2")
 					.planet("region2")
 					.build();
+			toDestination = destinationsRepository.save(toDestination);
 
 			SpaceShip spaceShip = SpaceShip.builder()
 					.name("SpaceShip")
@@ -76,6 +79,7 @@ public class BackendApplication {
 					.description("SpaceShip Description")
 					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
 					.build();
+			spaceShip = spaceShipsRepository.save(spaceShip);
 
 			Tour tour = Tour.builder()
 					.bookings(null)
@@ -96,6 +100,7 @@ public class BackendApplication {
 					.point("point1")
 					.planet("region1")
 					.build();
+			fromDestination2 = destinationsRepository.save(fromDestination2);
 
 			Destination toDestination2 = Destination.builder()
 					.name("To Destination2")
@@ -104,6 +109,7 @@ public class BackendApplication {
 					.point("point2")
 					.planet("region2")
 					.build();
+			toDestination2 = destinationsRepository.save(toDestination2);
 
 			SpaceShip spaceShip2 = SpaceShip.builder()
 					.name("SpaceShip2")
@@ -115,6 +121,8 @@ public class BackendApplication {
 					.description("SpaceShip Description2")
 					.images(List.of("https://picsum.photos1/200/300", "https://picsum.photos2/200/300"))
 					.build();
+			spaceShip2 = spaceShipsRepository.save(spaceShip2);
+
 
 			Tour tour2 = Tour.builder()
 					.bookings(null)
@@ -128,17 +136,36 @@ public class BackendApplication {
 					.spaceShip(spaceShip2)
 					.build();
 
+			PlacesToVisit pl1 = PlacesToVisit.builder()
+					.destination(toDestination2)
+					.images(Arrays.asList("img1", "img2"))
+					.name("vally")
+					.build();
+			PlacesToVisit pl2 = PlacesToVisit.builder()
+					.destination(toDestination2)
+					.images(Arrays.asList("img11", "img21"))
+					.name("hill top")
+					.build();
+			PlacesToVisit pl3 = PlacesToVisit.builder()
+					.destination(toDestination2)
+					.images(Arrays.asList("img4", "img5"))
+					.name("mountain")
+					.build();
+
 
 			tourRepository.save(tour);
 			tourRepository.save(tour2);
+			placesToVisitRepository.save(pl1);
+			placesToVisitRepository.save(pl2);
+			placesToVisitRepository.save(pl3);
 
 
 
 			//Creating a auth user
 			Role userRole = roleRepository.save(new Role("USER"));
 			AuthUser authUser = AuthUser.builder()
-					.email("testUser@email.com")
-					.name("testUser")
+					.email("testUser")
+					.name("testUser@email.com")
 					.password(passwordEncoder.encode("testUserPass"))
 					.authorities(Set.of(userRole))
 					.build();
@@ -158,6 +185,7 @@ public class BackendApplication {
 					.cardNumber("123456789")
 					.cardType("Visa")
 					.build();
+			paymentCardRepository.save(paymentCard);
 
 			// creating a booking
 			Booking booking = Booking.builder()
@@ -166,9 +194,6 @@ public class BackendApplication {
 					.numberOfSeats(2)
 					.bookingClass("class1")
 					.build();
-
-
-			paymentCardRepository.save(paymentCard);
 			bookingRepository.save(booking);
 		};
 	}

@@ -39,7 +39,7 @@ public class Tour {
     private Time departureTime;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             fetch = FetchType.EAGER
     )
     @JoinColumn(
@@ -49,7 +49,7 @@ public class Tour {
     private Destination from;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             fetch = FetchType.EAGER
     )
     @JoinColumn(
@@ -59,7 +59,7 @@ public class Tour {
     private Destination to;
 
     @OneToOne(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             fetch = FetchType.EAGER
     )
     @JoinColumn(
@@ -70,7 +70,7 @@ public class Tour {
 
     @JsonIgnore
     @OneToMany(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             fetch = FetchType.LAZY,
             mappedBy = "tour"
     )
