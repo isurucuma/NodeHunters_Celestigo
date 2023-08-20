@@ -32,7 +32,7 @@ export default function ProfileGreet() {
           </Typography>
         </Grid>
         <Grid item xs={2} sx={{ padding: 0 }}>
-          <img src="/assets/icons/wave.svg" alt="Wave" />
+          <img src="/assets/icons/wave.svg" alt="Wave" className="wave-icon" />
         </Grid>
         <Grid item xs={3} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <Avatar

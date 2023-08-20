@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-export const ProfileDetails = () => {
+export const ProfileDetails = ({ isEdit }: { isEdit: boolean }) => {
   return (
     <Box
       sx={{
@@ -26,7 +26,7 @@ export const ProfileDetails = () => {
       <Typography
         variant="h1"
         sx={{
-          color: "#000",
+          color: isEdit ? "#fff" : "#000",
           textAlign: "center",
           textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
           fontFamily: "Montserrat",
