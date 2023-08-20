@@ -103,6 +103,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+#choose-ship-select,
+#choose-class-select {
+  white-space: normal;
+}
 
 a {
   color: inherit;

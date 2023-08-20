@@ -56,6 +56,9 @@ export const TourFilters = ({
         <Box sx={{ padding: "16px" }}>
           <PriceRange />
           <SpaceShipCategory />
+          <Box>
+            <PrimaryButton type="button">Filter</PrimaryButton>
+          </Box>
         </Box>
       </Popover>
     </>

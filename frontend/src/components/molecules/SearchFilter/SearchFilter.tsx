@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
 import Calender from "@/components/organisms/Calender/Calender";
 import { TourFilters } from "@/components/organisms/TourFilters/TourFilters";
+import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 
 export default function SearchFilter({
   setSearchFilterVal,
