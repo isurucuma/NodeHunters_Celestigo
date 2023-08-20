@@ -15,7 +15,7 @@ import CosmicTicket from "@/components/organisms/CosmicTicket/CosmicTicket";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getTour } from "@/services/tours/toursService";
 
-const ReviewBooking = () => {
+const AfterPayment = () => {
   const router: any = useRouter();
   const [tour, setTours] = useState<MiniTourCard>({
     id: "",
@@ -66,7 +66,7 @@ const ReviewBooking = () => {
   };
 
   const handleButtonClick = () => {
-    router.push("/make-payment");
+    router.push("/home");
   };
 
   return (
@@ -95,7 +95,8 @@ const ReviewBooking = () => {
               marginTop: "50px",
             }}
           >
-            Review Your Cosmic Adventure Ticket
+            Congratulations on securing your cosmic adventure with
+            Intergalactic!
           </Typography>
         </Box>
       </Box>
@@ -116,4 +117,4 @@ const ReviewBooking = () => {
   );
 };
 
-export default ReviewBooking;
+export default AfterPayment;

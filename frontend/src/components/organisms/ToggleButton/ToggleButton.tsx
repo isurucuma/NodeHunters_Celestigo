@@ -69,7 +69,7 @@ export default function PriceToggleButton() {
           lineHeight: "22px",
         }}
       >
-        Class 1 <br /> $ 200k
+        Class 2 <br /> $ 200k
       </ToggleButton>
     </ToggleButtonGroup>
   );
