@@ -74,7 +74,7 @@ const BankCard = ({
       <Box
         sx={{
           position: "absolute",
-          bottom: "25px",
+          bottom: "15px",
           left: "40px",
           margin: "auto",
         }}
