@@ -34,6 +34,7 @@ export const ProfileDetails = () => {
           fontStyle: "normal",
           fontWeight: 500,
           lineHeight: "normal",
+          marginTop: "10px",
         }}
       >
         Saarah Corner
