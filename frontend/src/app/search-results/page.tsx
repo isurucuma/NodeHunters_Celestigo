@@ -40,7 +40,7 @@ const SearchResults = () => {
         from: from,
         to: to,
         dates: [dateMin,dateMax],
-        priceRange: [0, 100000000],
+        priceRange: null,
         class: null,
       });
       setTours(data);
