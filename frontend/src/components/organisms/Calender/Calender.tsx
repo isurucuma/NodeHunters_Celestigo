@@ -17,7 +17,7 @@ const Calender = ({
 }: {
   open: boolean;
   anchorEl: HTMLElement | null;
-  onClose: () => void;
+  onClose: (selectedDates: Date[]) => void;
 }) => {
   const [value, setValue] = useState(new Date());
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
@@ -31,21 +31,18 @@ const Calender = ({
     });
     if (!isHaveDate) {
       setSelectedDates((prev) => [...prev, value]);
-      console.log("add date: ", value);
     } else {
       setSelectedDates((prev) =>
         prev.filter((date) => !dayjs(date).isSame(value, "day"))
       );
-      console.log("remove date: ", value);
     }
-    console.log("current selected dates: ", selectedDates);
   }, [value]);
 
   return (
     <>
       {open && (
         <Box
-          onClick={onClose}
+          onClick={() => onClose(selectedDates)}
           sx={{
             position: "fixed",
             top: 0,
@@ -80,12 +77,11 @@ const Calender = ({
         <Box sx={{ padding: "16px" }}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <StaticDatePicker
-              sx={{ borderRadius: "32px" }} // Adding rounded border style
+              sx={{ borderRadius: "32px" }}
               orientation="portrait"
               value={value}
               onChange={(newValue) => {
                 if (newValue !== null) {
-                  console.log("select this date:", newValue);
                   setValue(newValue);
                 }
               }}
@@ -115,7 +111,9 @@ const Calender = ({
             />
           </LocalizationProvider>
           <Box mt={2}>
-            <PrimaryButton onButtonClick={onClose}>Close</PrimaryButton>
+            <PrimaryButton onButtonClick={() => onClose(selectedDates)}>
+              Close
+            </PrimaryButton>
           </Box>
         </Box>
       </Popover>
