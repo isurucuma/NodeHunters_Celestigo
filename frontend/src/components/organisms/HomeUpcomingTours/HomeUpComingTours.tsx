@@ -22,10 +22,9 @@ function HomeUpComingTours() {
               color: "#FFF",
               textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               fontFamily: "Montserrat",
-              fontSize: "20px",
+              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 500,
-              lineHeight: "42px",
             }}
           >
             Upcoming Tours
@@ -38,9 +37,9 @@ function HomeUpComingTours() {
               color: "#FFF",
               textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               fontFamily: "Montserrat",
-              fontSize: "14px",
+              fontSize: "16px",
               fontStyle: "normal",
-              fontWeight: 600,
+              fontWeight: 400,
               lineHeight: "42px",
             }}
           >

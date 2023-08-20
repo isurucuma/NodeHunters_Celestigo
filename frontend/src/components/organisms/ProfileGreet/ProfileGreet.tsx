@@ -1,55 +1,43 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
 
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
 
 import SearchBoxTextInput from "@/components/atoms/SearchBox/SearchBoxTextInput/SearchBoxTextInput";
-import Typography from "@mui/material/Typography";
 
 export default function ProfileGreet() {
   return (
-    <Box>
+    <Box sx={{ paddingY: 4 }}>
       <Grid
         container
-        spacing={1}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "50px",
-        }}
+        spacing={2}
+        alignItems="center"
+        sx={{ marginTop: "10px" }}
       >
         <Grid item xs={7}>
           <Typography
             variant="h2"
             sx={{
               color: "#FFF",
-              textAlign: "center",
+              textAlign: "left",
               fontFamily: "Montserrat",
-              fontSize: "28px",
-              fontStyle: "normal",
+              fontSize: "25px",
               fontWeight: 500,
-              lineHeight: "normal",
             }}
           >
             Hello Saarah
           </Typography>
         </Grid>
-        <Grid item xs={2}>
-          <Box component="img" sx={{}} src="/assets/icons/wave.svg" />
+        <Grid item xs={2} sx={{ padding: 0 }}>
+          <img src="/assets/icons/wave.svg" alt="Wave" />
         </Grid>
         <Grid item xs={3} sx={{ display: "flex", justifyContent: "flex-end" }}>
-          <Box
-            component="img"
-            sx={{
-              width: "50px",
-              height: "50px",
-              objectFit: "cover",
-              borderRadius: "50%",
-            }}
+          <Avatar
+            sx={{ width: "50px", height: "50px", borderRadius: "50%" }}
+            alt="Profile Image"
             src="/assets/images/profile.jpg"
           />
         </Grid>
