@@ -203,11 +203,12 @@ export default function SingleDetails({
       <Box
         sx={{
           position: "absolute",
-          top: "50px",
+          top: "100px",
           right: "20px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Box

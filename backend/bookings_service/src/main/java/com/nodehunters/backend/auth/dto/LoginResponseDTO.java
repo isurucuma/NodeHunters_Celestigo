@@ -1,25 +1,25 @@
 package com.nodehunters.backend.auth.dto;
 
-import com.nodehunters.backend.auth.models.ApplicationUser;
+import com.nodehunters.backend.auth.models.AuthUser;
 
 public class LoginResponseDTO {
-    private ApplicationUser user;
+    private AuthUser user;
     private String jwt;
 
     public LoginResponseDTO() {
         super();
     }
 
-    public LoginResponseDTO(ApplicationUser user, String jwt) {
+    public LoginResponseDTO(AuthUser user, String jwt) {
         this.user = user;
         this.jwt = jwt;
     }
 
-    public ApplicationUser getUser() {
+    public AuthUser getUser() {
         return user;
     }
 
-    public void setUser(ApplicationUser user) {
+    public void setUser(AuthUser user) {
         this.user = user;
     }
 

@@ -107,10 +107,38 @@ body {
 #choose-class-select {
   white-space: normal;
 }
-
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+.mui-l4ivxp-MuiPickersLayout-root .MuiPickersLayout-actionBar {
+  display: none !important;
+}
 a {
   color: inherit;
   text-decoration: none;
+}
+@keyframes waveAnimation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+.wave-icon {
+  animation: waveAnimation 1.2s ease-in-out 2;
+  animation-fill-mode: forwards;
 }
 
 @media (prefers-color-scheme: dark) {

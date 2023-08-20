@@ -22,3 +22,11 @@ export type SearchTourCard = {
     class?: TourClass | null;
     
 };
+
+export type LocationData = {
+    title: string;
+    titleDescription: string;
+    climate: string;
+    culture: string;
+    img: string[];
+};

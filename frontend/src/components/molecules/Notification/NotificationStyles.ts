@@ -2,9 +2,10 @@ const notificationStyle = {
   root: {
     background: "linear-gradient(to bottom, #FFFFFFAB, #FFFFFF)",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-    width: "316px",
+    width: "90%",
     height: "70px",
     position: "absolute",
+    left: "20px",
     borderRadius: "24px",
     padding: "16px",
     display: "flex",

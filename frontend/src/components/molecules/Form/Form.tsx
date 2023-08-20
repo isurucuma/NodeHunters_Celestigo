@@ -39,6 +39,11 @@ const FormInput: React.FC<FormInputProps> = ({
           placeholder={placeholder}
           error={error}
           fullWidth
+          sx={{
+            borderRadius: "20px",
+            background: "#FFF",
+            boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+          }}
         />
       )}
     />
@@ -53,9 +58,7 @@ interface FormButtonProps {
 }
 
 const FormButton: React.FC<FormButtonProps> = ({ children }) => (
-    <PrimaryButton type="submit">
-      {children}
-      </PrimaryButton>
+  <PrimaryButton type="submit">{children}</PrimaryButton>
 );
 
 export { FormInput, FormButton };

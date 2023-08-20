@@ -112,7 +112,7 @@ const Calender = ({
           </LocalizationProvider>
           <Box mt={2}>
             <PrimaryButton onButtonClick={() => onClose(selectedDates)}>
-              Close
+              Search
             </PrimaryButton>
           </Box>
         </Box>

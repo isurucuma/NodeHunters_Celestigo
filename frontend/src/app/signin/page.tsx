@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
 import TextBlock from "@/components/atoms/TextBlock/TextBlock";
@@ -43,17 +43,16 @@ const Signin = () => {
   };
 
   return (
-    <Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        height="100vh"
-      >
-        <Box sx={{ mb: 25 }}>
-          <PageTitle title="Sign in" />
-        </Box>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <Box sx={{ width: "100%", maxWidth: "400px", p: 3 }}>
+        <PageTitle title="Sign in" />
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Box sx={{ mb: 2 }}>
@@ -87,18 +86,18 @@ const Signin = () => {
             <TextBlock link inline content="Forgot password?" />
           </Link>
 
-          <Box sx={{ mb: 4 }}>
+          <Box sx={{ mt: 2 }}>
             <FormButton>Sign in</FormButton>
           </Box>
         </form>
 
-        <Box sx={{ mb: 2 }}>
+        <Box sx={{ mt: 2 }}>
           <TextBlock content="Or sign in with" />
         </Box>
         <Box
           sx={{
             position: "absolute",
-            bottom: 0,
+            bottom: "20px",
             width: "75%",
             mb: 2,
             left: 0,
@@ -106,10 +105,12 @@ const Signin = () => {
             margin: "auto",
           }}
         >
-          <TextBlock inline content="Don’t have an account? " />
-          <Link onClick={() => router.push("/signup")}>
-            <TextBlock link inline content="Sign up" />
-          </Link>
+          <Box sx={{ mt: 2, textAlign: "center" }}>
+            <TextBlock inline content="Don’t have an account? " />
+            <Link onClick={() => router.push("/signup")}>
+              <TextBlock link inline content="Sign up" />
+            </Link>
+          </Box>
         </Box>
       </Box>
     </Box>

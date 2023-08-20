@@ -4,20 +4,25 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 interface MenuItemProps {
-  item: "editProfile" | "myBookings" | "support" | "terms" | "privacy" | "logout";
+  item:
+    | "editProfile"
+    | "myBookings"
+    | "support"
+    | "terms"
+    | "privacy"
+    | "logout";
 }
 
 export const MenuItem = ({ item }: MenuItemProps) => {
   const router = useRouter();
 
   const handleItemClick = (link: string) => {
-    if(link === "/logout") {
+    if (link === "/logout") {
       localStorage.clear();
       router.push("/signin");
-    }else{
+    } else {
       router.push(link);
     }
-    
   };
 
   const menuItems = {
@@ -64,7 +69,7 @@ export const MenuItem = ({ item }: MenuItemProps) => {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "5px 20px",
-        marginTop: "10px",
+        margin: "10px 0",
       }}
       onClick={() => handleItemClick(menuItems[item].link)}
     >
