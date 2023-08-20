@@ -31,6 +31,7 @@ export default function SingleDetails({
     const updatedSeatCount = seatCountN + 1;
     setSeatCountN(updatedSeatCount);
     updateLocalStorage(updatedSeatCount);
+    console.log("++++++++++++++++++++++");
   };
 
   const handleDecreaseSeat = () => {
@@ -231,7 +232,7 @@ export default function SingleDetails({
         </Typography>
         <Button
           onClick={() => {
-            handleIncreaseSeat;
+            handleIncreaseSeat();
           }}
           sx={{ margin: "20px 0" }}
         >
@@ -258,7 +259,7 @@ export default function SingleDetails({
         </Typography>
         <Button
           onClick={() => {
-            handleDecreaseSeat;
+            handleDecreaseSeat();
           }}
           sx={{ margin: "20px 0" }}
         >
