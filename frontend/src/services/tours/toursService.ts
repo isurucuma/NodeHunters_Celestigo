@@ -1,5 +1,6 @@
 import { MiniTourCard } from "@/types/tourCard";
 import { ISearchTourProps } from "./toursInterface";
+import { http } from "../http/httpService";
 
 const SearchResultsData: MiniTourCard[] = [
   {
@@ -53,6 +54,13 @@ async function searchTour(search: ISearchTourProps) {
     // const res = await http.get(`/item/tour/search?search=${search}`)
     // return res.data.tours
     // return SearchResultsData
+    const res = await http.get(
+      `/tour/filter?from=${search.from}&to=${search.to}&startDate=${search.fromDate}&endDate=${search.toDate}`
+    );
+    if (res.status === 200) {
+      console.log(res.data);
+    }
+    return res.data;
   } catch (error: any) {
     throw error.data.error;
   }
