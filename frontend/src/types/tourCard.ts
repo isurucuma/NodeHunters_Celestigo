@@ -10,6 +10,8 @@ export type MiniTourCard = {
     price: string;
     discount: string;
     image?: string;
+    class?: TourClass | null;
+
 };
 
 export type SearchTourCard = {
@@ -19,4 +21,12 @@ export type SearchTourCard = {
     price?: number[];
     class?: TourClass | null;
     
+};
+
+export type LocationData = {
+    title: string;
+    titleDescription: string;
+    climate: string;
+    culture: string;
+    img: string[];
 };

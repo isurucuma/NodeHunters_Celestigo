@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
@@ -19,8 +19,14 @@ interface SingleDetailViewVerifyData {
 }
 
 const SingleDetailViewVerify = () => {
-  const [personCount, setPersonCount] = useState(2); // Default is 2
+  const [personCount, setPersonCount] = useState(1); // Default is 2
   const router: any = useRouter();
+
+  useEffect(() => {
+    // get person count from local storage
+    let tourBooking = JSON.parse(localStorage.getItem("tourBooking") || "");
+    setPersonCount(tourBooking.seatCount);
+  }, []);
 
   const handleBackButtonClick = () => {
     router.back();
@@ -28,7 +34,7 @@ const SingleDetailViewVerify = () => {
 
   const defaultSingleDetailViewVerifyData: SingleDetailViewVerifyData = {};
   for (let i = 0; i < personCount; i++) {
-    defaultSingleDetailViewVerifyData[`fullname${i}`] = "1";
+    defaultSingleDetailViewVerifyData[`fullname${i}`] = "";
     defaultSingleDetailViewVerifyData[`cosmicid${i}`] = "";
   }
 
@@ -65,8 +71,8 @@ const SingleDetailViewVerify = () => {
 
     console.log(persons);
 
-    // Redirect to payment
-    router.push("/make-payment");
+    // Redirect to review booking
+    router.push("/review-booking");
   };
 
   return (

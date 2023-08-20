@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React,{useState,useEffect} from "react";
 import AppTemplate from "@/components/templates/AppTemplate";
 import PageTitle from "@/components/atoms/PageTitle/PageTitle";
 import Box from "@mui/material/Box";
@@ -8,10 +8,14 @@ import PrimaryButton from "@/components/atoms/PrimaryButton/PrimaryButton";
 import CommonCard from "@/components/molecules/CommonCard/CommonCard";
 import PlanetCarousal from "@/components/organisms/PlanetCarousal/PlanetCarousal";
 import BackButton from "@/components/atoms/BackButton/BackButton";
-import { useRouter } from "next/navigation";
+import { useRouter,useSearchParams } from "next/navigation";
 
 const Planet = () => {
   const router: any = useRouter();
+  const searchParams = useSearchParams()
+  const tourId = searchParams.get('id') || "";
+
+  const [planetPlaceData, setPlanetPlaceData] = useState<any>([]);
 
   const handleBackButtonClick = () => {
     router.back();
@@ -31,7 +35,7 @@ const Planet = () => {
         <Box sx={{ mb: 2, mt: 2 }}>
           <PageTitle title="VENUS" />
         </Box>
-        <PlanetCarousal />
+        <PlanetCarousal tourId={tourId}/>
       </Box>
     </AppTemplate>
   );

@@ -63,7 +63,16 @@ const MyBookings = () => {
           Upcoming .....
         </Typography>
       </Box>
-      <CosmicTicket />
+      <CosmicTicket
+        key="1"
+        id="1"
+        from="Earth"
+        to="Mars"
+        ship="SpaceX"
+        date="2020-10-10"
+        price="100000"
+        discount="-10"
+      />
 
       <Typography
         variant="h2"
@@ -94,8 +103,26 @@ const MyBookings = () => {
       >
         Last Month ....
       </Typography>
-      <CosmicTicket />
-      <CosmicTicket />
+      <CosmicTicket
+        key="2"
+        id="2"
+        from="Earth"
+        to="Mars"
+        ship="SpaceX"
+        date="2020-11-21"
+        price="100000"
+        discount="-10"
+      />
+      <CosmicTicket
+        key="3"
+        id="3"
+        from="Earth"
+        to="Mars"
+        ship="SpaceX"
+        date="2021-03-02"
+        price="100000"
+        discount="-10"
+      />
     </AppTemplate>
   );
 };
